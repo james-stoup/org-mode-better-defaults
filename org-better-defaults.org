@@ -203,6 +203,47 @@ Making the UI a little easier to interact with.
 
 * Core Org Mode Settings
 
+** Default Locations
+Org needs to know where to look for things and the most common place to put your org files is in your home directory. While we are at it, let's associate all files ending in ~.org~ with ~org-mode~.
+
+#+begin_src emacs-lisp
+(setq org-agenda-files '("~/org"))
+
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+#+end_src
+
+** Better Keybindings
+We can make things easier on ourselves with some better keybindings.
+
+#+begin_src emacs-lisp
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(define-key global-map "\C-cc" 'org-capture)
+#+end_src
+
+** Indentation
+
+#+begin_src emacs-lisp
+(setq org-startup-indented t)
+#+end_src
+
+** Auto Lists
+This is something so simple I can't believe it isn't already turned on by default. Calvin Young's [[https://github.com/calvinwyoung/org-autolist][org-autolist]] is so useful. When you are making a list and you hit return, it automatically adds another bullet for you. It is wonderful.
+
+#+begin_src emacs-lisp
+(use-package org-autolist
+  :hook (org-mode . org-autolist-mode)
+  )
+#+end_src
+
+
+** Logging
+It is often helpful to record a timemstamp when a TODO item is marked done. You can record a timestamp as well as a note by changing ~'time~ to ~'note~, but that can be overkill for most things.
+
+#+begin_src emacs-lisp
+(setq org-log-done 'time)
+#+end_src
+
 ** Better Babel
 Working in source blocks is an amazing feature, but there are some annoyances. No longer having to confirm every time you want to execute a code block is wonderful.
 
@@ -217,52 +258,11 @@ Working in source blocks is an amazing feature, but there are some annoyances. N
   )
 #+end_src
 
-** Auto Lists
-This is something so simple I can't believe it isn't already turned on by default. Calvin Young's [[https://github.com/calvinwyoung/org-autolist][org-autolist]] is so useful. When you are making a list and you hit return, it automatically adds another bullet for you. It is wonderful.
-
-#+begin_src emacs-lisp
-(use-package org-autolist
-  :hook (org-mode . org-autolist-mode)
-  )
-#+end_src
-
-
-** Default Locations
-Org needs to know where to look for things and the most common place to put your org files is in your home directory. While we are at it, let's associate all files ending in ~.org~ with ~org-mode~.
-
-#+begin_src emacs-lisp
-(setq org-agenda-files '("~/org"))
-
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-#+end_src
-
-** Logging
-It is often helpful to record a timemstamp when a TODO item is marked done. You can record a timestamp as well as a note by changing ~'time~ to ~'note~, but that can be overkill for most things.
-
-#+begin_src emacs-lisp
-(setq org-log-done 'time)
-#+end_src
-
 ** Misc
 Always open links by hitting return.
 
 #+begin_src emacs-lisp
 (setq org-return-follows-link  t)
-#+end_src
-
-** Indentation
-
-#+begin_src emacs-lisp
-(setq org-startup-indented t)
-#+end_src
-
-** Better Keybindings
-We can make things easier on ourselves with some better keybindings.
-
-#+begin_src emacs-lisp
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(define-key global-map "\C-cc" 'org-capture)
 #+end_src
 
 * Better TODO Settings

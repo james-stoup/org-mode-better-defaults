@@ -154,6 +154,22 @@
 ;; Cleanup whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+(setq org-agenda-files '("~/org"))
+
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(define-key global-map "\C-cc" 'org-capture)
+
+(setq org-startup-indented t)
+
+(use-package org-autolist
+  :hook (org-mode . org-autolist-mode)
+  )
+
+(setq org-log-done 'time)
+
 (use-package org
   :pin gnu
   :custom
@@ -163,23 +179,7 @@
   (org-src-preserve-indentation t)              ;; Preserving indentation in source blocks
   )
 
-(use-package org-autolist
-  :hook (org-mode . org-autolist-mode)
-  )
-
-(setq org-agenda-files '("~/org"))
-
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-
-(setq org-log-done 'time)
-
 (setq org-return-follows-link  t)
-
-(setq org-startup-indented t)
-
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(define-key global-map "\C-cc" 'org-capture)
 
 (setq org-todo-keywords
       '((sequence "TODO(t)" "IN-PROGRESS(i)" "BLOCKED(b)" "|" "DONE(d)" "WONT-DO(w)" ))
