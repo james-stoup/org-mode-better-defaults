@@ -1,40 +1,47 @@
 
 # Table of Contents
 
-1.  [Initial Setup](#orgbed74ea)
-    1.  [Add Core Repositories](#org2140b4a)
-    2.  [Setup Use-Package](#orga067dbd)
-    3.  [Configure Basic Functionality](#orga2c2893)
-    4.  [Install Small Packages](#org423c300)
-    5.  [Helm](#org2b5f454)
-    6.  [Projectile](#org861f7ee)
-    7.  [Improved Defaults](#orgc3db05f)
-2.  [Core Org Mode Settings](#orgc62a374)
-    1.  [Better Babel](#org65a9c90)
-    2.  [Auto Lists](#org6be6697)
-    3.  [Default Locations](#orgec7e15a)
-    4.  [Logging](#org3da68bc)
-    5.  [Misc](#orgd6a950e)
-    6.  [Indentation](#org1a14b3e)
-    7.  [Better Keybindings](#orgbb3aa32)
-3.  [Better TODO Settings](#org2c1bc92)
-4.  [UI Improvements](#orgf55e6d4)
-    1.  [Colorizing TODOs](#org0d857c6)
-    2.  [Misc Features](#org9eadb95)
-    3.  [Better Fonts](#orgc27708d)
+1.  [Initial Setup](#org1aa9dcc)
+    1.  [Add Core Repositories](#org23d18e6)
+    2.  [Setup Use-Package](#orgec6a922)
+    3.  [Configure Basic Functionality](#orgf354b2e)
+    4.  [Install Small Packages](#org7dce86f)
+    5.  [Helm](#org5fab11f)
+    6.  [Projectile](#orge31b599)
+    7.  [Improved Defaults](#org2d133be)
+2.  [Core Org Mode Settings](#org049a764)
+    1.  [Default Locations](#org1b26e54)
+    2.  [Better Keybindings](#org6d53ee7)
+    3.  [Indentation](#orgc762094)
+    4.  [Auto Lists](#org30667de)
+    5.  [Logging](#orga9da02a)
+    6.  [Better Babel](#org67a769f)
+    7.  [Misc](#org4ac99a9)
+3.  [Better TODO Settings](#org7ab2bb7)
+    1.  [Expanding TODO Keywords](#orgd36645d)
+    2.  [Adding Better Capture Templates](#org7eb76a5)
+    3.  [Adding Tags](#org868edaa)
+    4.  [Colorizing Tags](#org157f0b3)
+4.  [Better Agendas](#org9d56c02)
+    1.  [Daily Agenda](#org1fae719)
+5.  [UI Improvements](#org2848d52)
+    1.  [Colorizing TODOs](#org0567e2a)
+    2.  [Colorizing Tags](#org7264ed9)
+    3.  [Misc Features](#orgd802e8f)
+    4.  [Better Fonts](#org1cb95de)
 
 
 This package is designed to improve the Org Mode experience with better default settings. Out of the box, Org Mode is already very useful. However, the experience can be greatly improved by making some basic changes to enhance your workflow and improve your experience. Many of these settings are recommended in various Org Mode tutorials, blogs, demos, and videos. This just saves you the time of having to make all these changes yourself.
 
 
-<a id="orgbed74ea"></a>
+<a id="org1aa9dcc"></a>
 
 # Initial Setup
 
 This is the core setup that adds the core repos, configures use-package, sets useful defaults, initializes an auto complete and project management system, and finally sets some nice UI tweaks that greatly enhance the experience.
 
 
-<a id="org2140b4a"></a>
+<a id="org23d18e6"></a>
 
 ## Add Core Repositories
 
@@ -46,7 +53,7 @@ Add additional repositories
     (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") )
 
 
-<a id="orga067dbd"></a>
+<a id="orgec6a922"></a>
 
 ## Setup Use-Package
 
@@ -69,7 +76,7 @@ This has to be installed first.
     (setq use-package-always-ensure t)
 
 
-<a id="orga2c2893"></a>
+<a id="orgf354b2e"></a>
 
 ## Configure Basic Functionality
 
@@ -90,7 +97,7 @@ This makes the UI a little more pleasant.
     (add-to-list 'image-types 'svg)
 
 
-<a id="org423c300"></a>
+<a id="org7dce86f"></a>
 
 ## Install Small Packages
 
@@ -156,7 +163,7 @@ These are a bunch of small, but useful, packages that make using org much nicer.
       )
 
 
-<a id="org2b5f454"></a>
+<a id="org5fab11f"></a>
 
 ## Helm
 
@@ -180,7 +187,7 @@ There are several options for this kind of functionality, but I'm going with Hel
       )
 
 
-<a id="org861f7ee"></a>
+<a id="orge31b599"></a>
 
 ## Projectile
 
@@ -202,7 +209,7 @@ Once again, there are several solutions for this, but I've always liked Projecti
     (use-package seeing-is-believing)
 
 
-<a id="orgc3db05f"></a>
+<a id="org2d133be"></a>
 
 ## Improved Defaults
 
@@ -239,12 +246,61 @@ Making the UI a little easier to interact with.
     (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 
-<a id="orgc62a374"></a>
+<a id="org049a764"></a>
 
 # Core Org Mode Settings
 
 
-<a id="org65a9c90"></a>
+<a id="org1b26e54"></a>
+
+## Default Locations
+
+Org needs to know where to look for things and the most common place to put your org files is in your home directory. While we are at it, let's associate all files ending in `.org` with `org-mode`.
+
+    (setq org-agenda-files '("~/org"))
+    
+    (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+
+
+<a id="org6d53ee7"></a>
+
+## Better Keybindings
+
+We can make things easier on ourselves with some better keybindings.
+
+    (define-key global-map "\C-cl" 'org-store-link)
+    (define-key global-map "\C-ca" 'org-agenda)
+    (define-key global-map "\C-cc" 'org-capture)
+
+
+<a id="orgc762094"></a>
+
+## Indentation
+
+    (setq org-startup-indented t)
+
+
+<a id="org30667de"></a>
+
+## Auto Lists
+
+This is something so simple I can't believe it isn't already turned on by default. Calvin Young's [org-autolist](https://github.com/calvinwyoung/org-autolist) is so useful. When you are making a list and you hit return, it automatically adds another bullet for you. It is wonderful.
+
+    (use-package org-autolist
+      :hook (org-mode . org-autolist-mode)
+      )
+
+
+<a id="orga9da02a"></a>
+
+## Logging
+
+It is often helpful to record a timemstamp when a TODO item is marked done. You can record a timestamp as well as a note by changing `'time` to `'note`, but that can be overkill for most things.
+
+    (setq org-log-done 'time)
+
+
+<a id="org67a769f"></a>
 
 ## Better Babel
 
@@ -260,38 +316,7 @@ Working in source blocks is an amazing feature, but there are some annoyances. N
       )
 
 
-<a id="org6be6697"></a>
-
-## Auto Lists
-
-This is something so simple I can't believe it isn't already turned on by default. Calvin Young's [org-autolist](https://github.com/calvinwyoung/org-autolist) is so useful. When you are making a list and you hit return, it automatically adds another bullet for you. It is wonderful.
-
-    (use-package org-autolist
-      :hook (org-mode . org-autolist-mode)
-      )
-
-
-<a id="orgec7e15a"></a>
-
-## Default Locations
-
-Org needs to know where to look for things and the most common place to put your org files is in your home directory. While we are at it, let's associate all files ending in `.org` with `org-mode`.
-
-    (setq org-agenda-files '("~/org"))
-    
-    (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-
-
-<a id="org3da68bc"></a>
-
-## Logging
-
-It is often helpful to record a timemstamp when a TODO item is marked done. You can record a timestamp as well as a note by changing `'time` to `'note`, but that can be overkill for most things.
-
-    (setq org-log-done 'time)
-
-
-<a id="orgd6a950e"></a>
+<a id="org4ac99a9"></a>
 
 ## Misc
 
@@ -300,27 +325,14 @@ Always open links by hitting return.
     (setq org-return-follows-link  t)
 
 
-<a id="org1a14b3e"></a>
-
-## Indentation
-
-    (setq org-startup-indented t)
-
-
-<a id="orgbb3aa32"></a>
-
-## Better Keybindings
-
-We can make things easier on ourselves with some better keybindings.
-
-    (define-key global-map "\C-cl" 'org-store-link)
-    (define-key global-map "\C-ca" 'org-agenda)
-    (define-key global-map "\C-cc" 'org-capture)
-
-
-<a id="org2c1bc92"></a>
+<a id="org7ab2bb7"></a>
 
 # Better TODO Settings
+
+
+<a id="orgd36645d"></a>
+
+## Expanding TODO Keywords
 
 This expands the default TODO keywords by giving us some more robust options. Now there are two more working states and the ending state can be either DONE or WONT-DO.
 
@@ -329,12 +341,133 @@ This expands the default TODO keywords by giving us some more robust options. No
     )
 
 
-<a id="orgf55e6d4"></a>
+<a id="org7eb76a5"></a>
+
+## Adding Better Capture Templates
+
+    (setq org-capture-templates
+          '(
+            ("t" "TODO Item"
+             entry (file "~/org/todos.org")
+             "* TODO [#B] %? %^g\n"
+             :empty-lines 0)
+    
+            ("j" "Journal Entry"
+             entry (file+datetree "~/org/journal.org")
+             "* %?"
+             :empty-lines 1)
+    
+            ("m" "Meeting"
+             entry (file+datetree "~/org/meetings.org")
+             "* %? :meeting:%^g \n** Attendees\n - \n** Notes\n** Action Items\n*** TODO [#A] "
+             :tree-type week
+             :clock-in t
+             :clock-resume t
+             :empty-lines 0)
+    
+            ("n" "Note"
+             entry (file+headline "~/org/notes.org" "Random Notes")
+             "** %?"
+             :empty-lines 0)
+            ))
+
+
+<a id="org868edaa"></a>
+
+## Adding Tags
+
+    (setq org-tag-alist
+          '(
+            (:startgroup . nil)
+            ("easy" . ?e)
+            ("medium" . ?m)
+            ("difficult" . ?d)  
+            (:endgroup . nil)
+    
+            (:startgroup . nil)
+            ("@work" . ?w)
+            ("@home" . ?h)
+            ("@anywhere" . ?a)
+            (:endgroup . nil)
+            
+            ("CRITICAL" . ?c)
+            ))
+
+
+<a id="org157f0b3"></a>
+
+## Colorizing Tags
+
+    (setq org-tag-faces
+          '(
+            ("CRITICAL" . (:foreground "red1"          :weight bold))
+            ("easy"     . (:foreground "forest green"  :weight bold))
+            ("medium"   . (:foreground "yellow1"       :weight bold))
+            ("hard"     . (:foreground "sienna"        :weight bold))
+            ("@work"    . (:foreground "royalblue1"    :weight bold))
+            ("@home"    . (:foreground "mediumPurple1" :weight bold))
+            )
+          )
+
+
+<a id="org9d56c02"></a>
+
+# Better Agendas
+
+
+<a id="org1fae719"></a>
+
+## Daily Agenda
+
+    (defun air-org-skip-subtree-if-priority (priority)
+      "Skip an agenda subtree if it has a priority of PRIORITY.
+    
+    PRIORITY may be one of the characters ?A, ?B, or ?C."
+      (let ((subtree-end (save-excursion (org-end-of-subtree t)))
+            (pri-value (* 1000 (- org-lowest-priority priority)))
+            (pri-current (org-get-priority (thing-at-point 'line t))))
+        (if (= pri-value pri-current)
+            subtree-end
+          nil)))
+    
+    ;; This is a function used by the daily agenda function
+    (defun air-org-skip-subtree-if-habit ()
+      "Skip an agenda entry if it has a STYLE property equal to \"habit\"."
+      (let ((subtree-end (save-excursion (org-end-of-subtree t))))
+        (if (string= (org-entry-get nil "STYLE") "habit")
+            subtree-end
+          nil)))
+    
+    (setq org-agenda-skip-deadline-if-done t)
+    
+    ;; Additional Agenda configurations can be defined here, right now there is only this one
+    (setq org-agenda-custom-commands
+          '(
+            ;; Daily Agenda - most used
+            ("d" "Daily agenda and all TODOs"
+             ((tags "PRIORITY=\"A\""
+                    ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                     (org-agenda-overriding-header "High-priority unfinished tasks:")))
+              (agenda "" ((org-agenda-span 7)))
+              (alltodo ""
+                       ((org-agenda-skip-function '(or (air-org-skip-subtree-if-priority ?A)
+                                                       (air-org-skip-subtree-if-priority ?C)
+                                                       (org-agenda-skip-if nil '(scheduled deadline))))
+                        (org-agenda-overriding-header "ALL normal priority tasks:")))
+              (tags "PRIORITY=\"C\""
+                    ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                     (org-agenda-overriding-header "Low-priority Unfinished tasks:")))
+              )
+             ((org-agenda-compact-blocks nil)))
+            ))
+
+
+<a id="org2848d52"></a>
 
 # UI Improvements
 
 
-<a id="org0d857c6"></a>
+<a id="org0567e2a"></a>
 
 ## Colorizing TODOs
 
@@ -349,7 +482,23 @@ This expands the default TODO keywords by giving us some more robust options. No
           )
 
 
-<a id="org9eadb95"></a>
+<a id="org7264ed9"></a>
+
+## Colorizing Tags
+
+    (setq org-tag-faces
+          '(
+            ("CRITICAL"     . (:foreground "red1"          :weight bold))
+            ("grooming"     . (:foreground "forest green"  :weight bold))
+            ("meeting"      . (:foreground "yellow1"       :weight bold))
+            ("retro"        . (:foreground "royalblue1"    :weight bold))
+            ("scrum"        . (:foreground "mediumPurple1" :weight bold))
+            ("tech_design"  . (:foreground "sienna"        :weight bold))
+            )
+          )
+
+
+<a id="orgd802e8f"></a>
 
 ## Misc Features
 
@@ -357,7 +506,7 @@ This expands the default TODO keywords by giving us some more robust options. No
     (add-hook 'org-mode-hook 'visual-line-mode)
 
 
-<a id="orgc27708d"></a>
+<a id="org1cb95de"></a>
 
 ## Better Fonts
 

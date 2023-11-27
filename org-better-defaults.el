@@ -185,6 +185,102 @@
       '((sequence "TODO(t)" "IN-PROGRESS(i)" "BLOCKED(b)" "|" "DONE(d)" "WONT-DO(w)" ))
 )
 
+(setq org-capture-templates
+      '(
+        ("t" "TODO Item"
+         entry (file "~/org/todos.org")
+         "* TODO [#B] %? %^g\n"
+         :empty-lines 0)
+
+        ("j" "Journal Entry"
+         entry (file+datetree "~/org/journal.org")
+         "* %?"
+         :empty-lines 1)
+
+        ("m" "Meeting"
+         entry (file+datetree "~/org/meetings.org")
+         "* %? :meeting:%^g \n** Attendees\n - \n** Notes\n** Action Items\n*** TODO [#A] "
+         :tree-type week
+         :clock-in t
+         :clock-resume t
+         :empty-lines 0)
+
+        ("n" "Note"
+         entry (file+headline "~/org/notes.org" "Random Notes")
+         "** %?"
+         :empty-lines 0)
+        ))
+
+(setq org-tag-alist
+      '(
+        (:startgroup . nil)
+        ("easy" . ?e)
+        ("medium" . ?m)
+        ("difficult" . ?d)  
+        (:endgroup . nil)
+
+        (:startgroup . nil)
+        ("@work" . ?w)
+        ("@home" . ?h)
+        ("@anywhere" . ?a)
+        (:endgroup . nil)
+        
+        ("CRITICAL" . ?c)
+        ))
+
+(setq org-tag-faces
+      '(
+        ("CRITICAL" . (:foreground "red1"          :weight bold))
+        ("easy"     . (:foreground "forest green"  :weight bold))
+        ("medium"   . (:foreground "yellow1"       :weight bold))
+        ("hard"     . (:foreground "sienna"        :weight bold))
+        ("@work"    . (:foreground "royalblue1"    :weight bold))
+        ("@home"    . (:foreground "mediumPurple1" :weight bold))
+        )
+      )
+
+(defun air-org-skip-subtree-if-priority (priority)
+  "Skip an agenda subtree if it has a priority of PRIORITY.
+
+PRIORITY may be one of the characters ?A, ?B, or ?C."
+  (let ((subtree-end (save-excursion (org-end-of-subtree t)))
+        (pri-value (* 1000 (- org-lowest-priority priority)))
+        (pri-current (org-get-priority (thing-at-point 'line t))))
+    (if (= pri-value pri-current)
+        subtree-end
+      nil)))
+
+;; This is a function used by the daily agenda function
+(defun air-org-skip-subtree-if-habit ()
+  "Skip an agenda entry if it has a STYLE property equal to \"habit\"."
+  (let ((subtree-end (save-excursion (org-end-of-subtree t))))
+    (if (string= (org-entry-get nil "STYLE") "habit")
+        subtree-end
+      nil)))
+
+(setq org-agenda-skip-deadline-if-done t)
+
+;; Additional Agenda configurations can be defined here, right now there is only this one
+(setq org-agenda-custom-commands
+      '(
+        ;; Daily Agenda - most used
+        ("d" "Daily agenda and all TODOs"
+         ((tags "PRIORITY=\"A\""
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                 (org-agenda-overriding-header "High-priority unfinished tasks:")))
+          (agenda "" ((org-agenda-span 7)))
+          (alltodo ""
+                   ((org-agenda-skip-function '(or (air-org-skip-subtree-if-priority ?A)
+                                                   (air-org-skip-subtree-if-priority ?C)
+                                                   (org-agenda-skip-if nil '(scheduled deadline))))
+                    (org-agenda-overriding-header "ALL normal priority tasks:")))
+          (tags "PRIORITY=\"C\""
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                 (org-agenda-overriding-header "Low-priority Unfinished tasks:")))
+          )
+         ((org-agenda-compact-blocks nil)))
+        ))
+
 (setq org-todo-keyword-faces
       '(
         ("TODO"        . (:weight bold :foreground "GoldenRod"))
@@ -192,6 +288,17 @@
         ("BLOCKED"     . (:weight bold :foreground "Red"      ))
         ("DONE"        . (:weight bold :foreground "LimeGreen"))
         ("WONT-DO"     . (:weight bold :foreground "LimeGreen"))
+        )
+      )
+
+(setq org-tag-faces
+      '(
+        ("CRITICAL"     . (:foreground "red1"          :weight bold))
+        ("grooming"     . (:foreground "forest green"  :weight bold))
+        ("meeting"      . (:foreground "yellow1"       :weight bold))
+        ("retro"        . (:foreground "royalblue1"    :weight bold))
+        ("scrum"        . (:foreground "mediumPurple1" :weight bold))
+        ("tech_design"  . (:foreground "sienna"        :weight bold))
         )
       )
 
