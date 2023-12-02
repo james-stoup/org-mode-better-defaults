@@ -150,20 +150,28 @@ There are several options for this kind of functionality, but I'm going with Hel
 Once again, there are several solutions for this, but I've always liked Projectile so that's what I'm sticking with.
 
 #+begin_src emacs-lisp
-(use-package projectile
-  :bind (:map projectile-mode-map
-              ("C-c p" . projectile-command-map))
-  :config
-  (projectile-global-mode)
-  (setq projectile-completion-system 'helm)
-  (helm-projectile-on)
+;; (use-package projectile
+;;   :bind (:map projectile-mode-map
+;;               ("C-c p" . projectile-command-map))
+;;   :config
+;;   (projectile-global-mode)
+;;   (setq projectile-completion-system 'helm)
+;;   (helm-projectile-on)
+;;   )
+
+;; (use-package helm-projectile)
+
+;; (use-package ac-helm)
+
+;; (use-package seeing-is-believing)
+#+end_src
+
+** Treemacs
+
+#+begin_src emacs-lisp
+(use-package treemacs
+  :hook (after-init . 'treemacs)
   )
-
-(use-package helm-projectile)
-
-(use-package ac-helm)
-
-(use-package seeing-is-believing)
 #+end_src
 
 ** Improved Defaults
@@ -450,4 +458,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
    )
   )
 #+end_src
+
+** Org Modern
+So I don't like this look, but I'm going to include it.
 

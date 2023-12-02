@@ -109,20 +109,24 @@
   :bind ("C-h b" . helm-descbinds)
   )
 
-(use-package projectile
-  :bind (:map projectile-mode-map
-              ("C-c p" . projectile-command-map))
-  :config
-  (projectile-global-mode)
-  (setq projectile-completion-system 'helm)
-  (helm-projectile-on)
+;; (use-package projectile
+;;   :bind (:map projectile-mode-map
+;;               ("C-c p" . projectile-command-map))
+;;   :config
+;;   (projectile-global-mode)
+;;   (setq projectile-completion-system 'helm)
+;;   (helm-projectile-on)
+;;   )
+
+;; (use-package helm-projectile)
+
+;; (use-package ac-helm)
+
+;; (use-package seeing-is-believing)
+
+(use-package treemacs
+  :hook (after-init . 'treemacs)
   )
-
-(use-package helm-projectile)
-
-(use-package ac-helm)
-
-(use-package seeing-is-believing)
 
 ;; Start with the window maximized
 (toggle-frame-maximized)
