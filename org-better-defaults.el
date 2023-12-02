@@ -125,7 +125,11 @@
 ;; (use-package seeing-is-believing)
 
 (use-package treemacs
-  :hook (after-init . 'treemacs)
+  :init
+  (treemacs--add-project-to-current-workspace "~/org~")
+
+  :hook
+  (after-init . treemacs)
   )
 
 ;; Start with the window maximized
@@ -157,6 +161,9 @@
 
 ;; Cleanup whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(let ((org-dir "~/org"))
+  (make-directory org-dir))
 
 (setq org-agenda-files '("~/org"))
 
