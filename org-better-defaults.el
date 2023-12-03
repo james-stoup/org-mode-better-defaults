@@ -125,11 +125,7 @@
 ;; (use-package seeing-is-believing)
 
 (use-package treemacs
-  :init
-  (treemacs--add-project-to-current-workspace "~/org~")
-
-  :hook
-  (after-init . treemacs)
+  :hook (after-init . treemacs)
   )
 
 ;; Start with the window maximized
@@ -141,7 +137,6 @@
 ;; show columns in addition to lines
 (setq column-number-mode t
       initial-scratch-message nil
-      inhibit-startup-screen nil
       visible-bell t
       show-paren-mode 1)
 
@@ -162,8 +157,48 @@
 ;; Cleanup whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-(let ((org-dir "~/org"))
-  (make-directory org-dir))
+(when (member "Symbola" (font-family-list))
+  (set-fontset-font "fontset-default" nil
+                    (font-spec :size 20 :name "Symbola")))
+
+(when (member "Symbola" (font-family-list))
+  (set-fontset-font t 'unicode "Symbola" nil 'prepend))
+
+(add-hook 'org-mode-hook
+          (lambda ()
+            (variable-pitch-mode 1)
+            visual-line-mode))
+
+(font-lock-add-keywords 'org-mode
+                        '(("^ *\\([-]\\) "
+                           (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+(font-lock-add-keywords 'org-mode
+                        '(("^ *\\([+]\\) "
+                           (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "◦"))))))
+
+(custom-theme-set-faces
+ 'user
+ '(variable-pitch ((t (:family "Source Sans Pro" :height 120 :weight light))))
+ '(fixed-pitch ((t ( :family "Consolas" :slant normal :weight normal :height 0.9 :width normal)))))
+
+(custom-theme-set-faces
+ 'user
+ '(org-block                 ((t (:inherit fixed-pitch))))
+ '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
+ '(org-property-value        ((t (:inherit fixed-pitch))) t)
+ '(org-special-keyword       ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+ '(org-tag                   ((t (:inherit (shadow fixed-pitch) :weight bold))))
+ '(org-verbatim              ((t (:inherit (shadow fixed-pitch))))))
+
+(use-package org-num
+  :load-path "lisp/"
+  :after org
+  :hook (org-mode . org-num-mode))
+
+(unless (file-directory-p "~/org~")
+  (let ((org-dir "~/org"))
+    (make-directory org-dir))
+  )
 
 (setq org-agenda-files '("~/org"))
 

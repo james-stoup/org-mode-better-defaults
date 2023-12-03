@@ -167,14 +167,11 @@ Once again, there are several solutions for this, but I've always liked Projecti
 #+end_src
 
 ** Treemacs
+Treemacs needs to be installed because it will allow you to view the top two headings of org files. Effectively creating a top level outline view of all org files. This is incredibly useful. With this hook treemacs will start as soon as Emacs is launched. When that happens, it will prompt for the directory to use as the root of the project. I recommend using the org directory in your home directory (don't worry, it gets automatically created) as that is a pretty standard place to store your org files.
 
 #+begin_src emacs-lisp
 (use-package treemacs
-  :init
-  (treemacs--add-project-to-current-workspace "~/org~")
-
-  :hook
-  (after-init . treemacs)
+  :hook (after-init . treemacs)
   )
 #+end_src
 
@@ -191,7 +188,6 @@ Making the UI a little easier to interact with.
 ;; show columns in addition to lines
 (setq column-number-mode t
       initial-scratch-message nil
-      inhibit-startup-screen nil
       visible-bell t
       show-paren-mode 1)
 
@@ -213,14 +209,57 @@ Making the UI a little easier to interact with.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 #+end_src
 
-* Core Org Mode Settings
+** Better Fonts
+#+begin_src emacs-lisp
+(when (member "Symbola" (font-family-list))
+  (set-fontset-font "fontset-default" nil
+                    (font-spec :size 20 :name "Symbola")))
 
+(when (member "Symbola" (font-family-list))
+  (set-fontset-font t 'unicode "Symbola" nil 'prepend))
+
+(add-hook 'org-mode-hook
+          (lambda ()
+            (variable-pitch-mode 1)
+            visual-line-mode))
+
+(font-lock-add-keywords 'org-mode
+                        '(("^ *\\([-]\\) "
+                           (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+(font-lock-add-keywords 'org-mode
+                        '(("^ *\\([+]\\) "
+                           (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "◦"))))))
+
+(custom-theme-set-faces
+ 'user
+ '(variable-pitch ((t (:family "Source Sans Pro" :height 120 :weight light))))
+ '(fixed-pitch ((t ( :family "Consolas" :slant normal :weight normal :height 0.9 :width normal)))))
+
+(custom-theme-set-faces
+ 'user
+ '(org-block                 ((t (:inherit fixed-pitch))))
+ '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
+ '(org-property-value        ((t (:inherit fixed-pitch))) t)
+ '(org-special-keyword       ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+ '(org-tag                   ((t (:inherit (shadow fixed-pitch) :weight bold))))
+ '(org-verbatim              ((t (:inherit (shadow fixed-pitch))))))
+
+(use-package org-num
+  :load-path "lisp/"
+  :after org
+  :hook (org-mode . org-num-mode))
+
+#+end_src
+
+* Core Org Mode Settings
 ** Default Locations
 Org needs to know where to look for things and the most common place to put your org files is in your home directory. So first let's create the ~~/org~ directory if it doesn't already exist. Then we can associate all files ending in ~.org~ with ~org-mode~.
 
 #+begin_src emacs-lisp
-(let ((org-dir "~/org"))
-  (make-directory org-dir))
+(unless (file-directory-p "~/org~")
+  (let ((org-dir "~/org"))
+    (make-directory org-dir))
+  )
 
 (setq org-agenda-files '("~/org"))
 
@@ -251,7 +290,6 @@ This is something so simple I can't believe it isn't already turned on by defaul
   )
 #+end_src
 
-
 ** Logging
 It is often helpful to record a timemstamp when a TODO item is marked done. You can record a timestamp as well as a note by changing ~'time~ to ~'note~, but that can be overkill for most things.
 
@@ -281,7 +319,6 @@ Always open links by hitting return.
 #+end_src
 
 * Better TODO Settings
-
 ** Expanding TODO Keywords
 This expands the default TODO keywords by giving us some more robust options. Now there are two more working states and the ending state can be either DONE or WONT-DO.
 
@@ -354,7 +391,6 @@ This expands the default TODO keywords by giving us some more robust options. No
 #+end_src
 
 * Better Agendas
-
 ** Daily Agenda
 #+begin_src emacs-lisp
 (defun air-org-skip-subtree-if-priority (priority)
@@ -400,8 +436,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
         ))
 #+end_src
 
-* UI Improvements
-
+* Org UI Improvements
 ** Colorizing TODOs
 
 #+begin_src emacs-lisp
