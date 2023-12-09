@@ -157,14 +157,29 @@
 ;; Cleanup whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-(unless (file-directory-p "~/org~")
-  (let ((org-dir "~/org"))
-    (make-directory org-dir))
+(if
+    (not
+     (file-directory-p
+      (substitute-in-file-name "$HOME/org")
+      )
+     )
+    (
+     let ((org-dir "~/org"))
+      (make-directory org-dir)
+    )
   )
 
 (setq org-agenda-files '("~/org"))
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+
+(if
+    (equal "log" (file-name-extension (buffer-file-name)))
+    (progn
+      (highlight-lines-matching-regexp "ERROR:" 'hi-red-b)
+      (highlight-lines-matching-regexp "NOTE:" 'hi-blue-b)
+      )
+  )
 
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)

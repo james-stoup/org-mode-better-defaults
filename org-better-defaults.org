@@ -214,14 +214,31 @@ Making the UI a little easier to interact with.
 Org needs to know where to look for things and the most common place to put your org files is in your home directory. So first let's create the ~~/org~ directory if it doesn't already exist. Then we can associate all files ending in ~.org~ with ~org-mode~.
 
 #+begin_src emacs-lisp
-(unless (file-directory-p "~/org~")
-  (let ((org-dir "~/org"))
-    (make-directory org-dir))
+(if
+    (not
+     (file-directory-p
+      (substitute-in-file-name "$HOME/org")
+      )
+     )
+    (
+     let ((org-dir "~/org"))
+      (make-directory org-dir)
+    )
   )
 
 (setq org-agenda-files '("~/org"))
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+#+end_src
+
+#+begin_src emacs-lisp
+(if
+    (equal "log" (file-name-extension (buffer-file-name)))
+    (progn
+      (highlight-lines-matching-regexp "ERROR:" 'hi-red-b)
+      (highlight-lines-matching-regexp "NOTE:" 'hi-blue-b)
+      )
+  )
 #+end_src
 
 ** Better Keybindings
