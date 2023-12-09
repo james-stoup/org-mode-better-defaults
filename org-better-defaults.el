@@ -157,16 +157,9 @@
 ;; Cleanup whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-(if
-    (not
-     (file-directory-p
-      (substitute-in-file-name "$HOME/org")
-      )
-     )
-    (
-     let ((org-dir "~/org"))
-      (make-directory org-dir)
-    )
+(if (not (file-directory-p (substitute-in-file-name "$HOME/org")))
+    (let ((org-dir (substitute-in-file-name "$HOME/org")))
+      (make-directory org-dir))
   )
 
 (setq org-agenda-files '("~/org"))
@@ -251,17 +244,6 @@
         ("CRITICAL" . ?c)
         ))
 
-(setq org-tag-faces
-      '(
-        ("CRITICAL" . (:foreground "red1"          :weight bold))
-        ("easy"     . (:foreground "forest green"  :weight bold))
-        ("medium"   . (:foreground "yellow1"       :weight bold))
-        ("hard"     . (:foreground "sienna"        :weight bold))
-        ("@work"    . (:foreground "royalblue1"    :weight bold))
-        ("@home"    . (:foreground "mediumPurple1" :weight bold))
-        )
-      )
-
 (defun air-org-skip-subtree-if-priority (priority)
   "Skip an agenda subtree if it has a priority of PRIORITY.
 
@@ -316,12 +298,12 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 (setq org-tag-faces
       '(
-        ("CRITICAL"     . (:foreground "red1"          :weight bold))
-        ("grooming"     . (:foreground "forest green"  :weight bold))
-        ("meeting"      . (:foreground "yellow1"       :weight bold))
-        ("retro"        . (:foreground "royalblue1"    :weight bold))
-        ("scrum"        . (:foreground "mediumPurple1" :weight bold))
-        ("tech_design"  . (:foreground "sienna"        :weight bold))
+        ("CRITICAL" . (:weight bold :foreground "red1"         ))
+        ("easy"     . (:weight bold :foreground "forest green" ))
+        ("medium"   . (:weight bold :foreground "yellow1"      ))
+        ("hard"     . (:weight bold :foreground "sienna"       ))
+        ("@work"    . (:weight bold :foreground "royalblue1"   ))
+        ("@home"    . (:weight bold :foreground "mediumPurple1"))
         )
       )
 
