@@ -1,48 +1,48 @@
 
 # Table of Contents
 
-1.  [Initial Setup](#orgeba89d5)
-    1.  [Add Core Repositories](#org8ce9625)
-    2.  [Setup Use-Package](#orgf7bb640)
-    3.  [Configure Basic Functionality](#org1c14844)
-    4.  [Install Small Packages](#org5e9096a)
-    5.  [Helm](#org50518cd)
-    6.  [Projectile](#orgef39fde)
-    7.  [Treemacs](#org7fedd2d)
-    8.  [Improved Defaults](#org7055011)
-2.  [Core Org Mode Settings](#orge7ebdc1)
-    1.  [Default Locations](#org29c7a35)
-    2.  [Better Keybindings](#orgc5df899)
-    3.  [Indentation](#org78c180b)
-    4.  [Auto Lists](#org7965591)
-    5.  [Logging](#orgcd9a10b)
-    6.  [Better Babel](#org8254b00)
-    7.  [Misc](#org1f29f5c)
-3.  [Better TODO Settings](#org679e393)
-    1.  [Expanding TODO Keywords](#org1d31806)
-    2.  [Adding Better Capture Templates](#orga1708f1)
-    3.  [Adding Tags](#org21a9aeb)
-4.  [Better Agendas](#org5c14901)
-    1.  [Daily Agenda](#org123e373)
-5.  [Org UI Improvements](#orgb40f3ed)
-    1.  [Colorizing TODOs](#org81e2208)
-    2.  [Colorizing Tags](#org5e72ced)
-    3.  [Misc Features](#org109cfa3)
-    4.  [Better Fonts](#org57d3f93)
-    5.  [Org Modern](#org9f3f975)
+1.  [Initial Setup](#org8e47e3a)
+    1.  [Add Core Repositories](#org223979b)
+    2.  [Setup Use-Package](#org76f63a6)
+    3.  [Configure Basic Functionality](#orgdce3769)
+    4.  [Install Small Packages](#org63c778d)
+    5.  [Helm](#orgc07253d)
+    6.  [Projectile](#orgad17f2f)
+    7.  [Treemacs](#org671369f)
+    8.  [Improved Defaults](#orgae1bec0)
+2.  [Core Org Mode Settings](#orgd88de16)
+    1.  [Default Locations](#org5609bb9)
+    2.  [Better Keybindings](#org2bf89dd)
+    3.  [Indentation](#orgfab515f)
+    4.  [Auto Lists](#org791d56c)
+    5.  [Logging](#org9c8e51d)
+    6.  [Better Babel](#org00106f2)
+    7.  [Misc](#org2df38c4)
+3.  [Better TODO Settings](#orgee6b2e1)
+    1.  [Expanding TODO Keywords](#orga0a678e)
+    2.  [Adding Better Capture Templates](#orgec6eba4)
+    3.  [Adding Tags](#org35b5ea8)
+4.  [Better Agendas](#org3d265ef)
+    1.  [Daily Agenda](#orgea69744)
+5.  [Org UI Improvements](#org4ec844e)
+    1.  [Colorizing TODOs](#orgb30045f)
+    2.  [Colorizing Tags](#orgb158dfb)
+    3.  [Misc Features](#org7360586)
+    4.  [Better Fonts](#org4b65ba6)
+    5.  [Org Modern](#org09d5a6c)
 
 
 This package is designed to improve the Org Mode experience with better default settings. Out of the box, Org Mode is already very useful. However, the experience can be greatly improved by making some basic changes to enhance your workflow and improve your experience. Many of these settings are recommended in various Org Mode tutorials, blogs, demos, and videos. This just saves you the time of having to make all these changes yourself.
 
 
-<a id="orgeba89d5"></a>
+<a id="org8e47e3a"></a>
 
 # Initial Setup
 
 This is the core setup that adds the core repos, configures use-package, sets useful defaults, initializes an auto complete and project management system, and finally sets some nice UI tweaks that greatly enhance the experience.
 
 
-<a id="org8ce9625"></a>
+<a id="org223979b"></a>
 
 ## Add Core Repositories
 
@@ -54,7 +54,7 @@ Add additional repositories
     (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") )
 
 
-<a id="orgf7bb640"></a>
+<a id="org76f63a6"></a>
 
 ## Setup Use-Package
 
@@ -77,7 +77,7 @@ This has to be installed first.
     (setq use-package-always-ensure t)
 
 
-<a id="org1c14844"></a>
+<a id="orgdce3769"></a>
 
 ## Configure Basic Functionality
 
@@ -98,7 +98,7 @@ This makes the UI a little more pleasant.
     (add-to-list 'image-types 'svg)
 
 
-<a id="org5e9096a"></a>
+<a id="org63c778d"></a>
 
 ## Install Small Packages
 
@@ -164,7 +164,7 @@ These are a bunch of small, but useful, packages that make using org much nicer.
       )
 
 
-<a id="org50518cd"></a>
+<a id="orgc07253d"></a>
 
 ## Helm
 
@@ -188,7 +188,7 @@ There are several options for this kind of functionality, but I'm going with Hel
       )
 
 
-<a id="orgef39fde"></a>
+<a id="orgad17f2f"></a>
 
 ## Projectile
 
@@ -210,7 +210,7 @@ Once again, there are several solutions for this, but I've always liked Projecti
     ;; (use-package seeing-is-believing)
 
 
-<a id="org7fedd2d"></a>
+<a id="org671369f"></a>
 
 ## Treemacs
 
@@ -221,7 +221,7 @@ Treemacs needs to be installed because it will allow you to view the top two hea
       )
 
 
-<a id="org7055011"></a>
+<a id="orgae1bec0"></a>
 
 ## Improved Defaults
 
@@ -257,12 +257,12 @@ Making the UI a little easier to interact with.
     (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 
-<a id="orge7ebdc1"></a>
+<a id="orgd88de16"></a>
 
 # Core Org Mode Settings
 
 
-<a id="org29c7a35"></a>
+<a id="org5609bb9"></a>
 
 ## Default Locations
 
@@ -277,16 +277,8 @@ Org needs to know where to look for things and the most common place to put your
     
     (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
-    (if
-        (equal "log" (file-name-extension (buffer-file-name)))
-        (progn
-          (highlight-lines-matching-regexp "ERROR:" 'hi-red-b)
-          (highlight-lines-matching-regexp "NOTE:" 'hi-blue-b)
-          )
-      )
 
-
-<a id="orgc5df899"></a>
+<a id="org2bf89dd"></a>
 
 ## Better Keybindings
 
@@ -297,14 +289,14 @@ We can make things easier on ourselves with some better keybindings.
     (define-key global-map "\C-cc" 'org-capture)
 
 
-<a id="org78c180b"></a>
+<a id="orgfab515f"></a>
 
 ## Indentation
 
     (setq org-startup-indented t)
 
 
-<a id="org7965591"></a>
+<a id="org791d56c"></a>
 
 ## Auto Lists
 
@@ -315,7 +307,7 @@ This is something so simple I can't believe it isn't already turned on by defaul
       )
 
 
-<a id="orgcd9a10b"></a>
+<a id="org9c8e51d"></a>
 
 ## Logging
 
@@ -324,7 +316,7 @@ It is often helpful to record a timemstamp when a TODO item is marked done. You 
     (setq org-log-done 'time)
 
 
-<a id="org8254b00"></a>
+<a id="org00106f2"></a>
 
 ## Better Babel
 
@@ -340,7 +332,7 @@ Working in source blocks is an amazing feature, but there are some annoyances. N
       )
 
 
-<a id="org1f29f5c"></a>
+<a id="org2df38c4"></a>
 
 ## Misc
 
@@ -349,12 +341,12 @@ Always open links by hitting return.
     (setq org-return-follows-link  t)
 
 
-<a id="org679e393"></a>
+<a id="orgee6b2e1"></a>
 
 # Better TODO Settings
 
 
-<a id="org1d31806"></a>
+<a id="orga0a678e"></a>
 
 ## Expanding TODO Keywords
 
@@ -365,7 +357,7 @@ This expands the default TODO keywords by giving us some more robust options. No
     )
 
 
-<a id="orga1708f1"></a>
+<a id="orgec6eba4"></a>
 
 ## Adding Better Capture Templates
 
@@ -396,7 +388,7 @@ This expands the default TODO keywords by giving us some more robust options. No
             ))
 
 
-<a id="org21a9aeb"></a>
+<a id="org35b5ea8"></a>
 
 ## Adding Tags
 
@@ -418,12 +410,12 @@ This expands the default TODO keywords by giving us some more robust options. No
             ))
 
 
-<a id="org5c14901"></a>
+<a id="org3d265ef"></a>
 
 # Better Agendas
 
 
-<a id="org123e373"></a>
+<a id="orgea69744"></a>
 
 ## Daily Agenda
 
@@ -470,12 +462,12 @@ This expands the default TODO keywords by giving us some more robust options. No
             ))
 
 
-<a id="orgb40f3ed"></a>
+<a id="org4ec844e"></a>
 
 # Org UI Improvements
 
 
-<a id="org81e2208"></a>
+<a id="orgb30045f"></a>
 
 ## Colorizing TODOs
 
@@ -490,7 +482,7 @@ This expands the default TODO keywords by giving us some more robust options. No
           )
 
 
-<a id="org5e72ced"></a>
+<a id="orgb158dfb"></a>
 
 ## Colorizing Tags
 
@@ -506,7 +498,7 @@ This expands the default TODO keywords by giving us some more robust options. No
           )
 
 
-<a id="org109cfa3"></a>
+<a id="org7360586"></a>
 
 ## Misc Features
 
@@ -514,7 +506,7 @@ This expands the default TODO keywords by giving us some more robust options. No
     (add-hook 'org-mode-hook 'visual-line-mode)
 
 
-<a id="org57d3f93"></a>
+<a id="org4b65ba6"></a>
 
 ## Better Fonts
 
@@ -543,7 +535,7 @@ This expands the default TODO keywords by giving us some more robust options. No
       )
 
 
-<a id="org9f3f975"></a>
+<a id="org09d5a6c"></a>
 
 ## Org Modern
 

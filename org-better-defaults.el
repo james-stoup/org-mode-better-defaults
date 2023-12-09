@@ -166,14 +166,6 @@
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
-(if
-    (equal "log" (file-name-extension (buffer-file-name)))
-    (progn
-      (highlight-lines-matching-regexp "ERROR:" 'hi-red-b)
-      (highlight-lines-matching-regexp "NOTE:" 'hi-blue-b)
-      )
-  )
-
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (define-key global-map "\C-cc" 'org-capture)
