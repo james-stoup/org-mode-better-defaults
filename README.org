@@ -219,3 +219,8 @@ I hope you found this simple tutorial useful. Emacs and Org Mode combine to make
 Likewise I want to stress to all new users that everything contained in this repo is just one way you can use Org Mode to organize your life. This isn't the *right* way because there is no universal *right* way, only a way that works for you. If you find some of these features useful but not others, then only use what you want. If you want to tweak the configurations listed here to better suite your tastes, then do so with my blessing. I sincerely hope that this software improves your life to the same degree it has improved mine. With that I leave you to go forth and do great things.
 
 
+
+
+include notes on A,B, and C levels of importance!
+
+include note about comment tags and how to activate them

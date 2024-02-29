@@ -1,3 +1,6 @@
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") )
@@ -33,6 +36,29 @@
 
 (add-to-list 'image-types 'svg)
 
+(setq light-mode t)
+
+(if light-mode
+    (
+     (setq
+      todo-color "Gold"
+      in-progress-color "DeepSkyBlue1"
+      blocked-color "Firebrick3"
+      done-color "Green3"
+      wont-do-color "Green3"
+      )
+     )
+  (
+   (setq
+    todo-color "GoldenRod"
+    in-progress-color "Cyan"
+    blocked-color "Red"
+    done-color "LimeGreen"
+    wont-do-color "LimeGreen"
+    )
+   )
+  )
+
 (use-package all-the-icons
   :if (display-graphic-p))
 
@@ -43,16 +69,18 @@
 
 (use-package better-defaults)
 
+;; Comment tags become colorized when followed by a colon.
+;; Example: // BUG: We don't check for null return values
 (use-package comment-tags)
 (autoload 'comment-tags-mode "comment-tags-mode")
 (setq comment-tags-keymap-prefix (kbd "C-c t"))
 (with-eval-after-load "comment-tags"
   (setq comment-tags-keyword-faces
-        `(("TODO"  . ,(list :weight 'bold :foreground "#28ABE3"))
-          ("FIXME" . ,(list :weight 'bold :foreground "#DB3340"))
-          ("BUG"   . ,(list :weight 'bold :foreground "#DB3340"))
-          ("HACK"  . ,(list :weight 'bold :foreground "#E8B71A"))
-          ("INFO"  . ,(list :weight 'bold :foreground "#F7EAC8"))
+        `(("TODO"  . ,(list :weight 'bold :foreground "Cyan"))
+          ("FIXME" . ,(list :weight 'bold :foreground "Red"))
+          ("BUG"   . ,(list :weight 'bold :foreground "Red"))
+          ("HACK"  . ,(list :weight 'bold :foreground "Yellow"))
+          ("INFO"  . ,(list :weight 'bold :foreground "LimeGreen"))
           )
         )
   (setq comment-tags-comment-start-only t
@@ -190,7 +218,7 @@
 (setq org-return-follows-link  t)
 
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "IN-PROGRESS(i)" "BLOCKED(b)" "|" "DONE(d)" "WONT-DO(w)" ))
+      '((sequence "TODO(t)" "IN-PROGRESS(i@/!)" "BLOCKED(b@/!)" "|" "DONE(d!)" "WONT-DO(w@/!)" ))
 )
 
 (setq org-capture-templates
@@ -280,11 +308,11 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 (setq org-todo-keyword-faces
       '(
-        ("TODO"        . (:weight bold :foreground "GoldenRod"))
-        ("IN-PROGRESS" . (:weight bold :foreground "Cyan"     ))
-        ("BLOCKED"     . (:weight bold :foreground "Red"      ))
-        ("DONE"        . (:weight bold :foreground "LimeGreen"))
-        ("WONT-DO"     . (:weight bold :foreground "LimeGreen"))
+        ("TODO"        . (:weight bold :foreground todo-color))
+        ("IN-PROGRESS" . (:weight bold :foreground in-progress-color))
+        ("BLOCKED"     . (:weight bold :foreground blocked-color))
+        ("DONE"        . (:weight bold :foreground done-color))
+        ("WONT-DO"     . (:weight bold :foreground wont-do-color))
         )
       )
 
