@@ -314,11 +314,11 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 (setq org-todo-keyword-faces
       '(
-        ("TODO"        . (:weight bold :foreground todo-color))
-        ("IN-PROGRESS" . (:weight bold :foreground in-progress-color))
-        ("BLOCKED"     . (:weight bold :foreground blocked-color))
-        ("DONE"        . (:weight bold :foreground done-color))
-        ("WONT-DO"     . (:weight bold :foreground wont-do-color))
+        `("TODO"        . (:weight bold :foreground ,todo-color))
+        `("IN-PROGRESS" . (:weight bold :foreground ,in-progress-color))
+        `("BLOCKED"     . (:weight bold :foreground ,blocked-color))
+        `("DONE"        . (:weight bold :foreground ,done-color))
+        `("WONT-DO"     . (:weight bold :foreground ,wont-do-color))
         )
       )
 
