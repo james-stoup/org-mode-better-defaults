@@ -9,10 +9,17 @@
 #+email: jrstoup@gmail.com
 
 
-This package is designed to improve the Org Mode experience with better default settings. Out of the box, Org Mode is already very useful. However, the experience can be greatly improved by making some basic changes to enhance your workflow and improve your experience. Many of these settings are recommended in various Org Mode tutorials, blogs, demos, and videos. This just saves you the time of having to make all these changes yourself.
+This repo is designed to improve the Org Mode experience with better default settings. Out of the box, Org Mode is already very useful. However, the experience can be greatly improved by making some basic changes to enhance your workflow and improve your experience. Many of these settings are recommended in various Org Mode tutorials, blogs, demos, and videos. This just saves you the time of having to make all these changes yourself.
 
 * Initial Setup
 This is the core setup that adds the core repos, configures use-package, sets useful defaults, initializes an auto complete and project management system, and finally sets some nice UI tweaks that greatly enhance the experience.
+** Load Custom File
+Load the ~custom.el~ file so any UI changes you make get saved and loaded properly.
+
+#+begin_src emacs-lisp
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
+#+end_src
 ** Add Core Repositories
 Add additional repositories
 #+begin_src emacs-lisp
@@ -59,6 +66,46 @@ This makes the UI a little more pleasant.
 
 (add-to-list 'image-types 'svg)
 #+end_src
+** Colors
+
+#+begin_src emacs-lisp
+(setq light-mode t)
+
+(if light-mode
+  (setq
+   ;; TODO States
+   todo-color "DarkOrange"
+   in-progress-color "DeepSkyBlue3"
+   blocked-color "Firebrick1"
+   done-color "Green3"
+   wont-do-color "SaddleBrown"
+
+   ;; Tags
+   critical-color "red1"
+   easy-color "forest green"
+   medium-color "yellow1"
+   hard-color "sienna"
+   work-color "royalblue1"
+   home-color "mediumPurple1"
+   )
+  (setq
+   ;; TODO States
+   todo-color "GoldenRod"
+   in-progress-color "Cyan"
+   blocked-color "Red"
+   done-color "LimeGreen"
+   wont-do-color "tan"
+
+   ;; Tags
+   critical-color "red1"
+   easy-color "forest green"
+   medium-color "yellow1"
+   hard-color "sienna"
+   work-color "royalblue1"
+   home-color "mediumPurple1"
+   )
+  )
+#+end_src
 
 ** Install Small Packages
 These are a bunch of small, but useful, packages that make using org much nicer.
@@ -74,16 +121,18 @@ These are a bunch of small, but useful, packages that make using org much nicer.
 
 (use-package better-defaults)
 
+;; Comment tags become colorized when followed by a colon.
+;; Example: // BUG: We don't check for null return values
 (use-package comment-tags)
 (autoload 'comment-tags-mode "comment-tags-mode")
 (setq comment-tags-keymap-prefix (kbd "C-c t"))
 (with-eval-after-load "comment-tags"
   (setq comment-tags-keyword-faces
-        `(("TODO"  . ,(list :weight 'bold :foreground "#28ABE3"))
-          ("FIXME" . ,(list :weight 'bold :foreground "#DB3340"))
-          ("BUG"   . ,(list :weight 'bold :foreground "#DB3340"))
-          ("HACK"  . ,(list :weight 'bold :foreground "#E8B71A"))
-          ("INFO"  . ,(list :weight 'bold :foreground "#F7EAC8"))
+        `(("TODO"  . ,(list :weight 'bold :foreground "Cyan"))
+          ("FIXME" . ,(list :weight 'bold :foreground "Red"))
+          ("BUG"   . ,(list :weight 'bold :foreground "Red"))
+          ("HACK"  . ,(list :weight 'bold :foreground "Yellow"))
+          ("INFO"  . ,(list :weight 'bold :foreground "LimeGreen"))
           )
         )
   (setq comment-tags-comment-start-only t
@@ -172,6 +221,12 @@ Treemacs needs to be installed because it will allow you to view the top two hea
 #+begin_src emacs-lisp
 (use-package treemacs
   :hook (after-init . treemacs)
+  :bind
+  (:map global-map
+        ("M-0"       . treemacs-select-window)
+        ("C-x t t"   . treemacs)
+        ("C-x t C-t" . treemacs-find-file)
+        ("C-x t M-t" . treemacs-find-tag))
   )
 #+end_src
 
@@ -282,7 +337,7 @@ This expands the default TODO keywords by giving us some more robust options. No
 
 #+begin_src emacs-lisp
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "IN-PROGRESS(i)" "BLOCKED(b)" "|" "DONE(d)" "WONT-DO(w)" ))
+      '((sequence "TODO(t)" "IN-PROGRESS(i@/!)" "BLOCKED(b@/!)" "|" "DONE(d!)" "WONT-DO(w@/!)" ))
 )
 #+end_src
 
@@ -333,7 +388,6 @@ This expands the default TODO keywords by giving us some more robust options. No
         ("CRITICAL" . ?c)
         ))
 #+end_src
-
 
 * Better Agendas
 ** Daily Agenda
@@ -386,12 +440,12 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 #+begin_src emacs-lisp
 (setq org-todo-keyword-faces
-      '(
-        ("TODO"        . (:weight bold :foreground "GoldenRod"))
-        ("IN-PROGRESS" . (:weight bold :foreground "Cyan"     ))
-        ("BLOCKED"     . (:weight bold :foreground "Red"      ))
-        ("DONE"        . (:weight bold :foreground "LimeGreen"))
-        ("WONT-DO"     . (:weight bold :foreground "LimeGreen"))
+      `(
+        ("TODO"        . (:weight bold :foreground ,todo-color))
+        ("IN-PROGRESS" . (:weight bold :foreground ,in-progress-color))
+        ("BLOCKED"     . (:weight bold :foreground ,blocked-color))
+        ("DONE"        . (:weight bold :foreground ,done-color))
+        ("WONT-DO"     . (:weight bold :foreground ,wont-do-color))
         )
       )
 #+end_src
@@ -445,6 +499,6 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   )
 #+end_src
 
-** Org Modern
-So I don't like this look, but I'm going to include it.
+
+
 

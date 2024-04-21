@@ -39,23 +39,37 @@
 (setq light-mode t)
 
 (if light-mode
-    (
-     (setq
-      todo-color "Gold"
-      in-progress-color "DeepSkyBlue1"
-      blocked-color "Firebrick3"
-      done-color "Green3"
-      wont-do-color "Green3"
-      )
-     )
-  (
-   (setq
-    todo-color "GoldenRod"
-    in-progress-color "Cyan"
-    blocked-color "Red"
-    done-color "LimeGreen"
-    wont-do-color "LimeGreen"
-    )
+  (setq
+   ;; TODO States
+   todo-color "DarkOrange"
+   in-progress-color "DeepSkyBlue3"
+   blocked-color "Firebrick1"
+   done-color "Green3"
+   wont-do-color "SaddleBrown"
+
+   ;; Tags
+   critical-color "red1"
+   easy-color "forest green"
+   medium-color "yellow1"
+   hard-color "sienna"
+   work-color "royalblue1"
+   home-color "mediumPurple1"
+   )
+  (setq
+   ;; TODO States
+   todo-color "GoldenRod"
+   in-progress-color "Cyan"
+   blocked-color "Red"
+   done-color "LimeGreen"
+   wont-do-color "tan"
+
+   ;; Tags
+   critical-color "red1"
+   easy-color "forest green"
+   medium-color "yellow1"
+   hard-color "sienna"
+   work-color "royalblue1"
+   home-color "mediumPurple1"
    )
   )
 
@@ -313,12 +327,12 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
         ))
 
 (setq org-todo-keyword-faces
-      '(
-        `("TODO"        . (:weight bold :foreground ,todo-color))
-        `("IN-PROGRESS" . (:weight bold :foreground ,in-progress-color))
-        `("BLOCKED"     . (:weight bold :foreground ,blocked-color))
-        `("DONE"        . (:weight bold :foreground ,done-color))
-        `("WONT-DO"     . (:weight bold :foreground ,wont-do-color))
+      `(
+        ("TODO"        . (:weight bold :foreground ,todo-color))
+        ("IN-PROGRESS" . (:weight bold :foreground ,in-progress-color))
+        ("BLOCKED"     . (:weight bold :foreground ,blocked-color))
+        ("DONE"        . (:weight bold :foreground ,done-color))
+        ("WONT-DO"     . (:weight bold :foreground ,wont-do-color))
         )
       )
 
