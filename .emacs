@@ -30,48 +30,11 @@
   (setq use-short-answers t)                      ; y-or-n-p makes answering questions faster
   (setq read-process-output-max (* 1024 1024))    ; Increase the amount of data which Emacs reads from the process
   (setq gc-cons-threshold 100000000)
-  (global-hl-line-mode 1)			        ; Highlight the current line to make it more visible
+  (global-hl-line-mode nil)		        ; Highlight the current line to make it more visible
   (setq lsp-idle-delay 0.500)
   )
 
 (add-to-list 'image-types 'svg)
-
-(setq light-mode t)
-
-(if light-mode
-  (setq
-   ;; TODO States
-   todo-color "DarkOrange"
-   in-progress-color "DeepSkyBlue3"
-   blocked-color "Firebrick1"
-   done-color "Green3"
-   wont-do-color "SaddleBrown"
-
-   ;; Tags
-   critical-color "red1"
-   easy-color "forest green"
-   medium-color "yellow1"
-   hard-color "sienna"
-   work-color "royalblue1"
-   home-color "mediumPurple1"
-   )
-  (setq
-   ;; TODO States
-   todo-color "GoldenRod"
-   in-progress-color "Cyan"
-   blocked-color "Red"
-   done-color "LimeGreen"
-   wont-do-color "tan"
-
-   ;; Tags
-   critical-color "red1"
-   easy-color "forest green"
-   medium-color "yellow1"
-   hard-color "sienna"
-   work-color "royalblue1"
-   home-color "mediumPurple1"
-   )
-  )
 
 (use-package all-the-icons
   :if (display-graphic-p))
@@ -151,21 +114,6 @@
   :bind ("C-h b" . helm-descbinds)
   )
 
-;; (use-package projectile
-;;   :bind (:map projectile-mode-map
-;;               ("C-c p" . projectile-command-map))
-;;   :config
-;;   (projectile-global-mode)
-;;   (setq projectile-completion-system 'helm)
-;;   (helm-projectile-on)
-;;   )
-
-;; (use-package helm-projectile)
-
-;; (use-package ac-helm)
-
-;; (use-package seeing-is-believing)
-
 (use-package treemacs
   :hook (after-init . treemacs)
   :bind
@@ -175,6 +123,11 @@
         ("C-x t C-t" . treemacs-find-file)
         ("C-x t M-t" . treemacs-find-tag))
   )
+
+(use-package doom-modeline
+:ensure t
+:hook (after-init . doom-modeline-mode)
+)
 
 ;; Start with the window maximized
 (toggle-frame-maximized)
@@ -225,6 +178,43 @@
   )
 
 (setq org-log-done 'time)
+
+(setq light-mode t)
+
+(if light-mode
+  (setq
+   ;; TODO States
+   todo-color "DarkOrange"
+   in-progress-color "DeepSkyBlue3"
+   blocked-color "Firebrick1"
+   done-color "Green3"
+   wont-do-color "SaddleBrown"
+
+   ;; Tags
+   critical-color "red1"
+   easy-color "turquoise4"
+   medium-color "turquoise4"
+   hard-color "turquoise4"
+   work-color "royalblue1"
+   home-color "mediumPurple2"
+   )
+  (setq
+   ;; TODO States
+   todo-color "GoldenRod"
+   in-progress-color "Cyan"
+   blocked-color "Red"
+   done-color "LimeGreen"
+   wont-do-color "tan"
+
+   ;; Tags
+   critical-color "red1"
+   easy-color "cyan3"
+   medium-color "cyan3"
+   hard-color "cyan3"
+   work-color "royalblue1"
+   home-color "mediumPurple1"
+   )
+  )
 
 (use-package org
   :pin gnu
@@ -328,24 +318,46 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 (setq org-todo-keyword-faces
       `(
-        ("TODO"        . (:weight bold :foreground ,todo-color))
-        ("IN-PROGRESS" . (:weight bold :foreground ,in-progress-color))
-        ("BLOCKED"     . (:weight bold :foreground ,blocked-color))
-        ("DONE"        . (:weight bold :foreground ,done-color))
-        ("WONT-DO"     . (:weight bold :foreground ,wont-do-color))
+        ("TODO"        . (:weight bold :foreground ,todo-color        ))
+        ("IN-PROGRESS" . (:weight bold :foreground ,in-progress-color ))
+        ("BLOCKED"     . (:weight bold :foreground ,blocked-color     ))
+        ("DONE"        . (:weight bold :foreground ,done-color        ))
+        ("WONT-DO"     . (:weight bold :foreground ,wont-do-color     ))
         )
       )
 
 (setq org-tag-faces
-      '(
-        ("CRITICAL" . (:weight bold :foreground "red1"         ))
-        ("easy"     . (:weight bold :foreground "forest green" ))
-        ("medium"   . (:weight bold :foreground "yellow1"      ))
-        ("hard"     . (:weight bold :foreground "sienna"       ))
-        ("@work"    . (:weight bold :foreground "royalblue1"   ))
-        ("@home"    . (:weight bold :foreground "mediumPurple1"))
+      ``(
+        ("CRITICAL" . (:weight bold :foreground ,critical-color ))
+        ("easy"     . (:weight bold :foreground ,easy-color     ))
+        ("medium"   . (:weight bold :foreground ,medium-color   ))
+        ("hard"     . (:weight bold :foreground ,hard-color     ))
+        ("@work"    . (:weight bold :foreground ,work-color     ))
+        ("@home"    . (:weight bold :foreground ,home-color     ))
         )
       )
+
+;; Enable the fontification of headlines for tasks that have been marked as
+;; completed.
+(setq org-fontify-done-headline t)
+
+(custom-set-faces
+ ;; Face used for todo keywords that indicate DONE items.
+ '(org-done
+   (
+    (t (:strike-through t))
+    )
+   )
+
+ ;; Face used to indicate that a headline is DONE. This face is only used if
+ ;; ‘org-fontify-done-headline’ is set. If applies to the part of the headline
+ ;; after the DONE keyword.
+ '(org-headline-done
+   (
+    (t (:strike-through t))
+    )
+   )
+ )
 
 (setq org-hide-emphasis-markers nil)
 (add-hook 'org-mode-hook 'visual-line-mode)
@@ -373,3 +385,13 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
    `(org-document-title ((t (,@headline ,@variable-tuple :height 2.0 :underline nil))))
    )
   )
+
+(defun my/modify-org-done-face ()
+  (setq org-fontify-done-headline t)
+  (set-face-attribute 'org-done nil :strike-through t)
+  (set-face-attribute 'org-headline-done nil
+                      :strike-through t
+                      :foreground "light gray"))
+
+(eval-after-load "org"
+  (add-hook 'org-add-hook 'my/modify-org-done-face))
