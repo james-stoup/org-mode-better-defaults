@@ -30,7 +30,6 @@
   (setq use-short-answers t)                      ; y-or-n-p makes answering questions faster
   (setq read-process-output-max (* 1024 1024))    ; Increase the amount of data which Emacs reads from the process
   (setq gc-cons-threshold 100000000)
-  (global-hl-line-mode t)		                ; Highlight the current line to make it more visible
   (setq lsp-idle-delay 0.500)
   )
 

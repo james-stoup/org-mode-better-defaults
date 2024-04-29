@@ -213,6 +213,31 @@ Lastly we are going to cover the journal entry capture template. This feature is
 
 ** Filtering Tags
 So far we have only talked about creating content in Org Mode and then viewing it in the Agenda. However, the Agenda View has quite a bit of hidden functionality that we never talked about. For example, it has a very nice filtering capability. For example, to filter your TODOs by tag you would navigate to the Agenda View and type ~/~ followed by the tag you wished to search for. If you wanted to reset the Agenda View and clear the search you would type ~|~. The Agenda supports some very advanced filtering options which is far beyond the scope of this simple tutorial, but I encourage you to checkout the Org Manual's page on [[https://orgmode.org/manual/Filtering_002flimiting-agenda-items.html][filtering/limiting agenda items]].
+
+* Keyboard Shortcuts List
+There are a lot of keyboard shortcuts you can use with Emacs, several of which were mentioned in this guide. Veteran Emacs users will have already picked up on most of them or otherwise know how to find them, however new users will need a little help. That's why I'm including a all the shortcuts mentioned in this tutorial as well as other useful shortcuts in a handy table below.
+
+There are two ways to activate each task mentioned in the table below. The easiest way is to use the keyboard shortcut. As a reminder, the first letter will always be either a ~C~ for the ~Ctrl~ key or an ~M~ for the ~Alt~ key. (I realize that ~Alt~ doesn't start with ~M~ but most modern keyboards don't come with a ~Meta~ key, so it has been remapped to the ~Alt~ key.) The letter that follows after the dash is the key you hit while holding the first key. A space means to release all the keys you are holding down. So the shortcut ~C-c c~ means "hold the Control key and press c, then release the keys and press c again".
+
+The second way of activating a task is to call the function directly. To do this press ~M-x~ and type in the function name. This is very useful because as you type, the list of available functions narrows. This is a great way to discover new functionality. Additionally you can type words separated by a space to see every function that matches those words. For example, after hitting ~M-x~ if you were to type ~org time~ you would get 18 results. Such as ~org-timer~, ~org-timestamp-up~, and ~org-clone-subtree-with-time-shift~ just to name a few. If a function has a shortcut, you will see it beside the function name. I encourage you to play around with this to discover new ways of using the various packages installed here.
+
+|--------------------------------------+----------+----------------------------+--------------------------------------------------|
+| TASK                                 | SHORTCUT | FUNCTION                   | NOTES                                            |
+|--------------------------------------+----------+----------------------------+--------------------------------------------------|
+| Open the Capture Template            | C-c c    | org-capture                | This is how you create a new TODO, Meeting, etc. |
+| Open the Agenda                      | C-c a    | org-agenda                 | View your calendar and all TODOs                 |
+| Save your new TODO, Meeting, etc.    | C-c C-c  | N/A                        | You do this once you have finished entering info |
+| Discard your new TODO, Meeting, etc. | C-c C-k  | N/A                        | This cancels you out of the capture template     |
+| Change the TODO state                | C-c C-t  | org-todo                   | Use this to go from TODO to IN-PROGRESS          |
+| Select a deadline for a TODO         | C-c C-d  | org-deadline               | This accepts syntax like ~+3d 11am~              |
+| Turn Treemacs on/off                 | C-x t t  | treemacs                   | This is the file browser on the left hand side   |
+| Maximize the current pane            | C-x 1    | delete-other-windows       | Make this pane the only one I see                |
+| Split the window into top and bottom | C-x 2    | split-window-below         | Make two panes, one above, and one below         |
+| Split the window into left and right | C-x 3    | split-window-right         | Make two panes, one on the right and on the left |
+| Save your file                       | C-x C-s  | save-buffer                | Saves your current file                          |
+| Close Emacs                          | C-x C-c  | save-buffers-kill-terminal | Save your files and close Emacs                  |
+|--------------------------------------+----------+----------------------------+--------------------------------------------------|
+
 * Beyond This Tutorial
 I hope you found this simple tutorial useful. Emacs and Org Mode combine to make a very versatile piece of software that has many unique uses. I encourage everyone who finds this interesting to explore more of Org Mode's functionality. This tutorial only touched on the very basics so as not to overwhelm new users, but if this interests you, please keep digging. There are still so many secrets to find!
 
