@@ -73,10 +73,13 @@
 (use-package format-all)
 (format-all-mode)
 
+;; Highlight matching parens
 (use-package highlight-parentheses)
 
+;; To make viewing your exported markdown code easier
 (use-package markdown-mode)
 
+;; Makes your modeline prettier
 (use-package mode-icons
   :config
   (mode-icons-mode)
@@ -84,11 +87,13 @@
 
 (use-package org-bullets) ;; TODO: Move this to the org section
 
+;; Makes installing packages easier
 (use-package paradox)
 (paradox-enable)
 
 (use-package paredit)
 
+;; Colorize your parens for easier viewing
 (use-package rainbow-delimiters)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
@@ -171,7 +176,12 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (define-key global-map "\C-cc" 'org-capture)
 
-(setq org-startup-indented t)
+;; Better indents
+(use-package org-indent
+  :ensure nil
+  :diminish
+  :custom
+  (org-indent-indentation-per-level 4))
 
 (use-package org-autolist
   :hook (org-mode . org-autolist-mode)
@@ -336,28 +346,6 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
         ("@home"    . (:weight bold :foreground ,home-color     ))
         )
       )
-
-;; Enable the fontification of headlines for tasks that have been marked as
-;; completed.
-(setq org-fontify-done-headline t)
-
-(custom-set-faces
- ;; Face used for todo keywords that indicate DONE items.
- '(org-done
-   (
-    (t (:strike-through t))
-    )
-   )
-
- ;; Face used to indicate that a headline is DONE. This face is only used if
- ;; ‘org-fontify-done-headline’ is set. If applies to the part of the headline
- ;; after the DONE keyword.
- '(org-headline-done
-   (
-    (t (:strike-through t))
-    )
-   )
- )
 
 (setq org-hide-emphasis-markers nil)
 (add-hook 'org-mode-hook 'visual-line-mode)

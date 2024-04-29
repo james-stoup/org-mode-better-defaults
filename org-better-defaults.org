@@ -107,10 +107,13 @@ These are a bunch of small, but useful, packages that make using org much nicer.
 (use-package format-all)
 (format-all-mode)
 
+;; Highlight matching parens
 (use-package highlight-parentheses)
 
+;; To make viewing your exported markdown code easier
 (use-package markdown-mode)
 
+;; Makes your modeline prettier
 (use-package mode-icons
   :config
   (mode-icons-mode)
@@ -118,11 +121,13 @@ These are a bunch of small, but useful, packages that make using org much nicer.
 
 (use-package org-bullets) ;; TODO: Move this to the org section
 
+;; Makes installing packages easier
 (use-package paradox)
 (paradox-enable)
 
 (use-package paredit)
 
+;; Colorize your parens for easier viewing
 (use-package rainbow-delimiters)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
@@ -236,9 +241,15 @@ We can make things easier on ourselves with some better keybindings.
 #+end_src
 
 ** Indentation
+This makes things look so much nicer.
 
 #+begin_src emacs-lisp
-(setq org-startup-indented t)
+;; Better indents
+(use-package org-indent
+  :ensure nil
+  :diminish
+  :custom
+  (org-indent-indentation-per-level 4))
 #+end_src
 
 ** Auto Lists
@@ -452,31 +463,6 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
       )
 #+end_src
 
-** Strike Through DONE Items
-#+begin_src emacs-lisp
-;; Enable the fontification of headlines for tasks that have been marked as
-;; completed.
-(setq org-fontify-done-headline t)
-
-(custom-set-faces
- ;; Face used for todo keywords that indicate DONE items.
- '(org-done
-   (
-    (t (:strike-through t))
-    )
-   )
-
- ;; Face used to indicate that a headline is DONE. This face is only used if
- ;; ‘org-fontify-done-headline’ is set. If applies to the part of the headline
- ;; after the DONE keyword.
- '(org-headline-done
-   (
-    (t (:strike-through t))
-    )
-   )
- )
-#+end_src
-
 ** Misc Features
 
 #+begin_src emacs-lisp
@@ -485,6 +471,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 #+end_src
 
 ** Better Fonts
+Making the fonts look cleaner.
 
 #+begin_src emacs-lisp
 (let* ((variable-tuple
@@ -511,9 +498,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
    )
   )
 #+end_src
-
-
-** Fade Items Marked DONE
+** Strike Through DONE Items
 #+begin_src emacs-lisp
 (defun my/modify-org-done-face ()
   (setq org-fontify-done-headline t)
@@ -525,4 +510,8 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 (eval-after-load "org"
   (add-hook 'org-add-hook 'my/modify-org-done-face))
 #+end_src
+
+* Keyboard Shortcuts List
+
+
 
