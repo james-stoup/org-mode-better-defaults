@@ -30,7 +30,7 @@
   (setq use-short-answers t)                      ; y-or-n-p makes answering questions faster
   (setq read-process-output-max (* 1024 1024))    ; Increase the amount of data which Emacs reads from the process
   (setq gc-cons-threshold 100000000)
-  (global-hl-line-mode nil)		        ; Highlight the current line to make it more visible
+  (global-hl-line-mode t)		                ; Highlight the current line to make it more visible
   (setq lsp-idle-delay 0.500)
   )
 
@@ -180,6 +180,7 @@
 (use-package org-indent
   :ensure nil
   :diminish
+  :hook (org-mode . org-indent-mode)
   :custom
   (org-indent-indentation-per-level 4))
 
@@ -198,7 +199,7 @@
    in-progress-color "DeepSkyBlue3"
    blocked-color "Firebrick1"
    done-color "Green3"
-   wont-do-color "SaddleBrown"
+   wont-do-color "Green3"
 
    ;; Tags
    critical-color "red1"
@@ -214,7 +215,7 @@
    in-progress-color "Cyan"
    blocked-color "Red"
    done-color "LimeGreen"
-   wont-do-color "tan"
+   wont-do-color "LimeGreen"
 
    ;; Tags
    critical-color "red1"
@@ -337,7 +338,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
       )
 
 (setq org-tag-faces
-      ``(
+      `(
         ("CRITICAL" . (:weight bold :foreground ,critical-color ))
         ("easy"     . (:weight bold :foreground ,easy-color     ))
         ("medium"   . (:weight bold :foreground ,medium-color   ))
