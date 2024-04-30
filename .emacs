@@ -1,5 +1,6 @@
 (setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
+(if (file-exists-p custom-file)
+    (load custom-file))
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -118,6 +119,15 @@
   :bind ("C-h b" . helm-descbinds)
   )
 
+(if (not (file-directory-p (substitute-in-file-name "$HOME/org")))
+    (let ((org-dir (substitute-in-file-name "$HOME/org")))
+      (make-directory org-dir))
+  )
+
+(setq org-agenda-files '("~/org"))
+
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+
 (use-package treemacs
   :hook (after-init . treemacs)
   :bind
@@ -127,6 +137,7 @@
         ("C-x t C-t" . treemacs-find-file)
         ("C-x t M-t" . treemacs-find-tag))
   )
+(treemacs-add-project "$HOME/org")
 
 (use-package doom-modeline
 :ensure t
@@ -162,15 +173,6 @@
 ;; Cleanup whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-(if (not (file-directory-p (substitute-in-file-name "$HOME/org")))
-    (let ((org-dir (substitute-in-file-name "$HOME/org")))
-      (make-directory org-dir))
-  )
-
-(setq org-agenda-files '("~/org"))
-
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (define-key global-map "\C-cc" 'org-capture)
@@ -189,7 +191,7 @@
 
 (setq org-log-done 'time)
 
-(setq light-mode t)
+(setq light-mode nil)
 
 (if light-mode
   (setq
