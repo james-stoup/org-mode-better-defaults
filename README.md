@@ -1,30 +1,30 @@
 
 # Table of Contents
 
-1.  [Welcome New Org Mode Users](#org7147934)
-2.  [What Is This And Why Do I Need It?](#orgc15b1e7)
-3.  [About This Repo](#org1becd05)
-    1.  [Overview](#org6fac317)
-    2.  [Installation](#orgdc99c21)
-4.  [I've Installed It, Now What?](#org4cb9f4d)
-    1.  [An Intro to this Org Mode Tutorial](#org4c9c510)
-    2.  [Tracking Work with TODOs](#orgab8f589)
-    3.  [Understanding the Agenda](#org6226c84)
-    4.  [Using Capture Templates](#org62c4636)
-5.  [A Practical Walkthrough](#org5a1a61f)
-    1.  [Monday Morning Meeting](#org5ed5d3a)
-    2.  [Filling in the Action Items](#orgff15d2d)
-    3.  [View the Agenda](#org80ab3ea)
-    4.  [Start Working on TODO #1](#org606c337)
-    5.  [Start Working on TODO #2](#org1cca52e)
-    6.  [Start Working on TODO #3](#orgc3b1f27)
-    7.  [A New TODO](#org23050dd)
-    8.  [Working the TODO](#org2c7fa82)
-    9.  [Make a note](#org8c40c3d)
-    10. [Record a journal entry](#orgcbbb105)
-    11. [Filtering Tags](#orgfdf2058)
-6.  [Keyboard Shortcuts List](#org90c652d)
-7.  [Beyond This Tutorial](#orgdad2295)
+1.  [Welcome New Org Mode Users](#orgc13201f)
+2.  [What Is This And Why Do I Need It?](#org4c54fc1)
+3.  [About This Repo](#orga9b44a5)
+    1.  [Overview](#orga7ddfc7)
+    2.  [Installation](#org2403acc)
+4.  [I've Installed It, Now What?](#org8bff8c2)
+    1.  [An Intro to this Org Mode Tutorial](#org8114e12)
+    2.  [Tracking Work with TODOs](#orgacaafd9)
+    3.  [Understanding the Agenda](#org589d1c5)
+    4.  [Using Capture Templates](#org14909b1)
+5.  [A Practical Walkthrough](#orgbcc884e)
+    1.  [Monday Morning Meeting](#org4fe37b4)
+    2.  [Filling in the Action Items](#orge64c50b)
+    3.  [View the Agenda](#org8235d22)
+    4.  [Start Working on TODO #1](#orga0489b3)
+    5.  [Start Working on TODO #2](#org983779b)
+    6.  [Start Working on TODO #3](#org1244139)
+    7.  [A New TODO](#org79e86c5)
+    8.  [Working the TODO](#org31f0052)
+    9.  [Make a note](#orgc3407b4)
+    10. [Record a journal entry](#orgb1331c8)
+    11. [Filtering Tags](#org4d624ff)
+6.  [Keyboard Shortcuts List](#org520e9c1)
+7.  [Beyond This Tutorial](#org0ea5ce4)
 
 ****Quick Start Guide****
 
@@ -36,7 +36,7 @@ For more details see below, but this is the minimum you need to make this work.
 4.  You are done, now restart `emacs` and take a look at the shortcut guide below
 
 
-<a id="org7147934"></a>
+<a id="orgc13201f"></a>
 
 # Welcome New Org Mode Users
 
@@ -45,7 +45,7 @@ So you want to use Org Mode, but you don't have 2 years to devote to teaching yo
 If you came here looking for a more in depth explanation of some of Org Mode's core features, please check out the very detailed write up I did in my [Emacs Org Mode Tutorial](https://github.com/james-stoup/emacs-org-mode-tutorial/). For the new people, you don't need to read that document (it is huge and can be daunting) as it is designed for people who want to really customize their Org Mode configurations. However, it does provide a lot of useful explanations with screenshots, so maybe come back to it once you've gotten some more experience with Org Mode.
 
 
-<a id="orgc15b1e7"></a>
+<a id="org4c54fc1"></a>
 
 # What Is This And Why Do I Need It?
 
@@ -56,14 +56,14 @@ The good news is that Org Mode "just works" right out of the box. The bad news i
 I sent them the link I put above so they could check out my tutorial on designing your Org Mode configuration from scratch, but they didn't want that. In fact, they had no idea what they wanted. The only thing they were sure of was that they wanted it to be functional now. Not in a year, not after they had learned lisp, right now. So what I did was massively pare down my own Emacs configuration until it was a lean setup geared entirely towards Org Mode. No code completion, language servers, linters, git integration, or anything else that wasn't directly related to Org Mode. Then I further cleaned it up to make it as easy to use as possible. Finally, I helped them install this new config and gave them some minimal instructions on how to use it. Guess what? They loved it. And based on their response I realized that there were probably a lot of people who would appreciate a little help getting started with Org Mode. So if that is you, I think this repo might help you.
 
 
-<a id="org1becd05"></a>
+<a id="orga9b44a5"></a>
 
 # About This Repo
 
 This repo is designed to help brand new Emacs users become productive in Org Mode. This is not an Emacs tutorial, nor is it meant as an all encompassing Org Mode tutorial. I will explain all the basic key commands you will need to get started, but this is not a substitute for reading the [Official Org Mode Manual](https://orgmode.org/manual/).
 
 
-<a id="org6fac317"></a>
+<a id="orga7ddfc7"></a>
 
 ## Overview
 
@@ -93,21 +93,21 @@ Here is a list of most of the primary enhancements provided:
 -   better bullets
 
 
-<a id="orgdc99c21"></a>
+<a id="org2403acc"></a>
 
 ## Installation
 
 To make your version of Emacs and Org Mode look like the screenshots below, download the `.emacs` file in this repo and either copy it into your existing `.emacs` file or overwrite it entirely. Then restart Emacs, open (or create) an Org file and you should a much nicer looking version of Org. To verify Org looks different you can download the `org-better-defaults.org` file in this repo and open it.
 
 
-<a id="org4cb9f4d"></a>
+<a id="org8bff8c2"></a>
 
 # I've Installed It, Now What?
 
 If you've already installed the config file and restarted Emacs, then it is time to begin your journey into productivity! Here are your next steps. First, finish reading this section so you understand the broad concepts that will be discussed here. Then, once you have a rough idea of the concepts, work your way through the tutorial so you can understand how someone might apply those concepts to real world tasks.
 
 
-<a id="org4c9c510"></a>
+<a id="org8114e12"></a>
 
 ## An Intro to this Org Mode Tutorial
 
@@ -122,7 +122,7 @@ To start off we are going to talk briefly about the three core concepts that mak
 Each of these topics will be covered below in more detail and by the end of this document, you should have a good idea of how to use the basics of Org Mode.
 
 
-<a id="orgab8f589"></a>
+<a id="orgacaafd9"></a>
 
 ## Tracking Work with TODOs
 
@@ -135,14 +135,14 @@ Here is an example TODO item entry that might appear in your `todos.org` file.
 
 Here is what this looks like in the default Org Mode view:
 
-<pics of presentation>
+![default org settings](images/image-4-org-default.png)
 
 Here is what it looks like with the Org Mode Better Defaults:
 
-<better pic>
+![better defaults](images/image-5-better-defaults.png)
 
 
-<a id="org6226c84"></a>
+<a id="org589d1c5"></a>
 
 ## Understanding the Agenda
 
@@ -155,7 +155,7 @@ Here is an example of the agenda in action.
 To bring up the Agenda hit `C-c a` and then select the agenda view you want to use. To follow along with this tutorial, use the `Daily Agenda and All TODOs` option by typing `d` at the agenda prompt. Don't worry if this doesn't seem to make sense right now. This section only contains brief explanations of what the core concepts, not a detailed breakdown of every feature. In the Practical Walkthrough section below all of the steps needed to interact with Org Mode will be clearly labeled so that even a total novice can use it.
 
 
-<a id="org62c4636"></a>
+<a id="org14909b1"></a>
 
 ## Using Capture Templates
 
@@ -173,7 +173,7 @@ Welcome to Capture Templates. This is a built-in way of bringing up a list of te
 Each one captures a specific type of data into a different org file. To access a capture template first press `C-c c` to bring up the list of available templates. Then press the letter designating the template you want to launch. The shortcut letters are shown beside their template in the list above.
 
 
-<a id="org5a1a61f"></a>
+<a id="orgbcc884e"></a>
 
 # A Practical Walkthrough
 
@@ -186,7 +186,7 @@ To start this tutorial just launch Emacs. You don't have to open a specific file
 <FRESH EMACS INSTALL PIC>
 
 
-<a id="org5ed5d3a"></a>
+<a id="org4fe37b4"></a>
 
 ## Monday Morning Meeting
 
@@ -207,7 +207,7 @@ Now the meeting has started so navigate to the `Notes` section and begin filling
 At the end of the meeting Alice tasks you with getting the numbers from Bob and Carla, checking our available funds, and writing up a recommendation to her by 11am Thursday morning. Now that we know what our tasking is, we need to decide how we should store this info. Thankfully our meeting template has one more heading, `Action Items`! Action Items are tasks that get assigned to us in meetings. Not every meeting will produce Action Items, so for those that don't we can just delete those lines before we save our meeting.
 
 
-<a id="orgff15d2d"></a>
+<a id="orge64c50b"></a>
 
 ## Filling in the Action Items
 
@@ -219,14 +219,14 @@ Once again type in the TODO template that you used for the previous item. The ti
 
 <PIC OF MEETING BEFORE FILING>
 
-Now that all the action items have been finished and the meeting is over, we can save this meeting. To do that hit `C-c C-c` and it will file it away.
+Now that all the action items have been finished and the meeting is over, we can save this meeting. To do that hit `C-c C-c` and it will file it away. Once you do that you will see a new file appear underneath the org folder on the left. This new file called `meetings.org` was created when you saved your new meeting.
 
 
-<a id="org80ab3ea"></a>
+<a id="org8235d22"></a>
 
 ## View the Agenda
 
-At this point we have create a meeting and 3 TODOs, which means our Agenda View will now have something to display. Let's open up the Agenda View and see what it looks like. To launch the Agenda hit `C-c a` to bring up the Agenda selector and then press `d` to activate the Daily Agenda view. Your screen should now look like this:
+At this point we have created a meeting and 3 TODOs, which means our Agenda View will now have something to display. Let's open up the Agenda View and see what it looks like. To launch the Agenda hit `C-c a` to bring up the Agenda selector and then press `d` to activate the Daily Agenda view. Your screen should now look like this:
 
 <DAILY AGENDA AND ALL TODOS PIC>
 
@@ -239,7 +239,7 @@ Once it is there, hit the `TAB` key and it should jump you to the source of the 
 You might be wondering where the meeting you just created is. After all, you see the 3 action items, but where is the meeting that you were just in? Well, the meeting won't show up by default for reasons that you don't care about right now. However, there is a really useful setting we can turn on to show extra details. Navigate to the `Week-agenda` and put your cursor anywhere within the calendar. This won't work if your cursor is in the TODO sections as this is strictly a calendar setting. Once there, hit `v` to bring up the View options in the mini buffer. We want to enable the log view, so to do that, hit the `l` key. Now we see our meeting~ And as a bonus we also see the time we spent in this meeting. When you first started the capture template for the meeting a clock was started. When the meeting was saved (or filed) the clock stopped and the elapsed time was computed. The agenda view can then take this info and display it in a nicely formatted view. This is especially helpful when you have a week full of meetings. You can see at a glance how much time you spent in meetings and what those meetings involved. Hitting the `tab` key when on the same line as a meeting will take you to that entry.
 
 
-<a id="org606c337"></a>
+<a id="orga0489b3"></a>
 
 ## Start Working on TODO #1
 
@@ -247,10 +247,12 @@ You should now have 3 different TODOs to visible in your Agenda. Let's start wit
 
 Once you do this you should be returned to your original buffer where you can see that the TODO named `Get current stock levels from Bob` looks a lot different now. The state has changed from `TODO` to `IN-PROGRESS`, there is a timestamp denoting the state change, and now your note appeared too. Let's add some more details by navigating to the end of this TODO and hit return twice. On this new line we can add more notes. So enter our latest note `Emailed Bob and requested more info.` which describes the work we are doing. For the sake of this example we are going to assume you then opened up your company's email client and sent Bob an email asking for the specific data you needed for your report.
 
-So far so good. We are making progress! Alas for us we get an auto generated email from Bob alerting us to the fact that Bob is out for the rest of the day due to a medical procedure. Since he won't return until tomorrow, we can't do anything else on this front. That shouldn't be a big problem though, since it is only Monday, he will be back on Tuesday, and the report is due Thursday, we still have time. Before we move on to another TODO item, we should really mark this to indicate what happened. To do that put your cursor back on the `IN-PROGRESS` line and hit `C-c C-t` to bring up the state change buffer. Now we are going to hit `b` to set it to blocked. Once again a we are going to add a note to describe this state change. So add the text `Bob is out of the office until tomorrow` and then hit `C-c C-c` to save it. Now our task is set to `BLOCKED` and we have a nice note describing why. Since we can't do anything more here, let's move on to our next TODO item.
+So far so good. We are making progress! Alas for us we get an auto generated email from Bob alerting us to the fact that Bob is out for the rest of the day due to a medical procedure. Since he won't return until tomorrow, we can't do anything else on this front. That shouldn't be a big problem though, since it is only Monday, he will be back on Tuesday, and the report is due Thursday, we still have time. Before we move on to another TODO item, we should really mark this to indicate what happened. To do that put your cursor back on the `IN-PROGRESS` line and hit `C-c C-t` to bring up the state change buffer. Now we are going to hit `b` to set it to blocked. Once again a we are going to add a note to describe this state change. So add the text `Bob is out of the office until tomorrow` and then hit `C-c C-c` to save it. Now our task is set to `BLOCKED` and we have a nice note describing why.
+
+If you click in the Org Agenda pane on the right and then press `r` it will refresh your view. Doing so will now show that your first TODO is blocked while the others remain in their default state. Since we can't do anything more here, let's move on to our next TODO item.
 
 
-<a id="org1cca52e"></a>
+<a id="org983779b"></a>
 
 ## Start Working on TODO #2
 
@@ -262,10 +264,12 @@ It is important to note that Carla sent us a very important piece of information
 
 The URL in question is `http:intranet.company.com/financial/reports/Q3-reports.xls` and we want to save this to our current TODO. Start by copying the URL and then navigating to the end of the TODO. Hit return twice to start a new line and then type `C-c C-l` to create a new link. The mini buffer will appear with link options, but you are going to type `C-y` to paste your copied URL in. Once it is pasted, hit return. Now the mini buffer will prompt you to enter a description. Here you can type `Intranet link to Carla's planning document` and hit return. This is now a functioning URL that can be clicked on to open the link in your default web browser.
 
-Since Carla has responded with the information we needed and we logged the results of that conversation, this TODO is complete. All we should have to do is mark it as `DONE` and we can move to something else. To mark it as done go to the `IN-PROGRESS` line and hit `C-c C-t` to open up the state selector. From here type `d` to select done. Enter a note such as `Got everything I needed from Carla` and then hit `C-c C-c` to save it. This TODO is now complete and will appear so in the Agenda View once it is refreshed. 
+Since Carla has responded with the information we needed and we logged the results of that conversation, this TODO is complete. All we should have to do is mark it as `DONE` and we can move to something else. To mark it as done go to the `IN-PROGRESS` line and hit `C-c C-t` to open up the state selector. From here type `d` to select done. Enter a note such as `Got everything I needed from Carla` and then hit `C-c C-c` to save it.
+
+At this point if you look in the Agenda view you will see your 1st TODO that is blocked and your 3rd TODO that you haven't started, but where is your 2nd TODO? The completed item is there, it just isn't shown by default. Move your cursor to somewhere in the Calendar (it won't work if you are in one of the TODO lists) and press `v` to bring up the view buffer. From there hit `l` to enable the log view. Now you will see two things. First, you will see your TODO item that you recently completed and second you will notice that your meeting has appeared! And as a bonus, the time you spent in this meeting appears beside it. You can easily filter your meetings to see how your week looks like as well as produce reports showing how much time you spend in meetings.
 
 
-<a id="orgc3b1f27"></a>
+<a id="org1244139"></a>
 
 ## Start Working on TODO #3
 
@@ -276,7 +280,7 @@ Start by navigating to the third and final action item called `Compile results a
 Now that the deadline has been added go ahead and set it to `IN-PROGRESS` just like we've done twice before. Add a note of your choice explaining what you started working on. After the state has been changed we could add additional notes to this TODO that might describe the order we wanted our report to be in, a list of graphs and tables to include, or links to templates that should be used for these types of company reports. You can also make new subheadings by hitting `C=return` and then hitting `tab` to move the heading over. Subheadings should be labeled in ways that make sense to your task. You can easily rearrange headings by holding the `alt` key and pressing the `up` or `down` arrow.
 
 
-<a id="org23050dd"></a>
+<a id="org79e86c5"></a>
 
 ## A New TODO
 
@@ -291,7 +295,7 @@ As soon as you save your new TODO entry a file will appear on the left hand side
 <TREEMACS AND TODO FILE PIC>
 
 
-<a id="org2c7fa82"></a>
+<a id="org31f0052"></a>
 
 ## Working the TODO
 
@@ -308,7 +312,7 @@ Things are really starting to take shape. We now have one sub heading that track
 Additional subheadings can be created as needed to further reflect other sources, ideas, or notes you wish to take. 
 
 
-<a id="org8c40c3d"></a>
+<a id="orgc3407b4"></a>
 
 ## Make a note
 
@@ -317,21 +321,21 @@ At this point in the Tutorial we have covered most of the major concepts so I'm 
 In this case start the capture template with `C-c c` and then hit `n` to create a new note. You can give it a tag, but you don't need to. For this note call it `Office Supplies`, hit return, and then add the note `The code for the supply closet is 223344`. File your note with the usual `C-c C-c` and you have created a simple note. While it is hardly as exciting as the other features we've covered, it is still a useful thing to have.
 
 
-<a id="orgcbbb105"></a>
+<a id="orgb1331c8"></a>
 
 ## Record a journal entry
 
 Lastly we are going to cover the journal entry capture template. This feature is meant to be a quick and easy way to log accomplishments at your job. If you find it useful consider looking up some of the Org Mode journal packages that offer more features. But for this case, this is meant as a very simple solution that allows you to jot down what you are doing on any given day. You can add as little or as much detail as you want. The goal is only to have an easy to reference record of what you do each day on the job. I personally have found this to be very useful at the end of the year when writing up my accomplishments for a performance review. It is very helpful to see what I've done throughout the year. 
 
 
-<a id="orgfdf2058"></a>
+<a id="org4d624ff"></a>
 
 ## Filtering Tags
 
-So far we have only talked about creating content in Org Mode and then viewing it in the Agenda. However, the Agenda View has quite a bit of hidden functionality that we never talked about. For example, it has a very nice filtering capability. For example, to filter your TODOs by tag you would navigate to the Agenda View and type `/` followed by the tag you wished to search for. If you wanted to reset the Agenda View and clear the search you would type `|`. The Agenda supports some very advanced filtering options which is far beyond the scope of this simple tutorial, but I encourage you to checkout the Org Manual's page on [filtering/limiting agenda items](https://orgmode.org/manual/Filtering_002flimiting-agenda-items.html).
+So far we have only talked about creating content in Org Mode and then viewing it in the Agenda. However, the Agenda View has quite a bit of hidden functionality that we never talked about. For example, it has a very nice filtering capability. To filter your TODOs by tag you would navigate to the Agenda View and type `/` followed by the tag you wished to search for. If you wanted to reset the Agenda View and clear the search you would type `|`. The Agenda supports some very advanced filtering options which is far beyond the scope of this simple tutorial, but I encourage you to checkout the Org Manual's page on [filtering/limiting agenda items](https://orgmode.org/manual/Filtering_002flimiting-agenda-items.html).
 
 
-<a id="org90c652d"></a>
+<a id="org520e9c1"></a>
 
 # Keyboard Shortcuts List
 
@@ -461,11 +465,17 @@ The second way of activating a task is to call the function directly. To do this
 </table>
 
 
-<a id="orgdad2295"></a>
+<a id="org0ea5ce4"></a>
 
 # Beyond This Tutorial
 
 I hope you found this simple tutorial useful. Emacs and Org Mode combine to make a very versatile piece of software that has many unique uses. I encourage everyone who finds this interesting to explore more of Org Mode's functionality. This tutorial only touched on the very basics so as not to overwhelm new users, but if this interests you, please keep digging. There are still so many secrets to find!
 
 Likewise I want to stress to all new users that everything contained in this repo is just one way you can use Org Mode to organize your life. This isn't the **right** way because there is no universal **right** way, only a way that works for you. If you find some of these features useful but not others, then only use what you want. If you want to tweak the configurations listed here to better suite your tastes, then do so with my blessing. I sincerely hope that this software improves your life to the same degree it has improved mine. With that I leave you to go forth and do great things.
+
+include notes on A,B, and C levels of importance!
+
+include note about comment tags and how to activate them
+
+include a suggestion for my favorite dark mode theme
 

@@ -75,11 +75,11 @@ Here is an example TODO item entry that might appear in your ~todos.org~ file.
 
 Here is what this looks like in the default Org Mode view:
 
-<pics of presentation>
+![[file:images/image-4-org-default.png][default org settings]]
 
 Here is what it looks like with the Org Mode Better Defaults:
 
-<better pic>
+![[file:images/image-5-better-defaults.png][better defaults]]
 
 ** Understanding the Agenda
 The agenda is a way of viewing all of your TODOs in one easy to read view. The agenda collects all of your various TODOs and then organizes them so you can easily see what you've done, what is coming up, and the states that everything is in. So if you have 3 TODOs in a file called ~work.org~ and 5 TODOs in a file called ~personal.org~, the agenda view will show you all 8 of your TODOs in one place. It also provides a handy calendar so you can view TODOs that have deadlines or see when you completed a TODO.
@@ -139,10 +139,10 @@ Once again type in the TODO template that you used for the previous item. The ti
 
 <PIC OF MEETING BEFORE FILING>
 
-Now that all the action items have been finished and the meeting is over, we can save this meeting. To do that hit ~C-c C-c~ and it will file it away.
+Now that all the action items have been finished and the meeting is over, we can save this meeting. To do that hit ~C-c C-c~ and it will file it away. Once you do that you will see a new file appear underneath the org folder on the left. This new file called ~meetings.org~ was created when you saved your new meeting.
 
 ** View the Agenda
-At this point we have create a meeting and 3 TODOs, which means our Agenda View will now have something to display. Let's open up the Agenda View and see what it looks like. To launch the Agenda hit ~C-c a~ to bring up the Agenda selector and then press ~d~ to activate the Daily Agenda view. Your screen should now look like this:
+At this point we have created a meeting and 3 TODOs, which means our Agenda View will now have something to display. Let's open up the Agenda View and see what it looks like. To launch the Agenda hit ~C-c a~ to bring up the Agenda selector and then press ~d~ to activate the Daily Agenda view. Your screen should now look like this:
 
 <DAILY AGENDA AND ALL TODOS PIC>
 
@@ -159,7 +159,9 @@ You should now have 3 different TODOs to visible in your Agenda. Let's start wit
 
 Once you do this you should be returned to your original buffer where you can see that the TODO named ~Get current stock levels from Bob~ looks a lot different now. The state has changed from ~TODO~ to ~IN-PROGRESS~, there is a timestamp denoting the state change, and now your note appeared too. Let's add some more details by navigating to the end of this TODO and hit return twice. On this new line we can add more notes. So enter our latest note ~Emailed Bob and requested more info.~ which describes the work we are doing. For the sake of this example we are going to assume you then opened up your company's email client and sent Bob an email asking for the specific data you needed for your report.
 
-So far so good. We are making progress! Alas for us we get an auto generated email from Bob alerting us to the fact that Bob is out for the rest of the day due to a medical procedure. Since he won't return until tomorrow, we can't do anything else on this front. That shouldn't be a big problem though, since it is only Monday, he will be back on Tuesday, and the report is due Thursday, we still have time. Before we move on to another TODO item, we should really mark this to indicate what happened. To do that put your cursor back on the ~IN-PROGRESS~ line and hit ~C-c C-t~ to bring up the state change buffer. Now we are going to hit ~b~ to set it to blocked. Once again a we are going to add a note to describe this state change. So add the text ~Bob is out of the office until tomorrow~ and then hit ~C-c C-c~ to save it. Now our task is set to ~BLOCKED~ and we have a nice note describing why. Since we can't do anything more here, let's move on to our next TODO item.
+So far so good. We are making progress! Alas for us we get an auto generated email from Bob alerting us to the fact that Bob is out for the rest of the day due to a medical procedure. Since he won't return until tomorrow, we can't do anything else on this front. That shouldn't be a big problem though, since it is only Monday, he will be back on Tuesday, and the report is due Thursday, we still have time. Before we move on to another TODO item, we should really mark this to indicate what happened. To do that put your cursor back on the ~IN-PROGRESS~ line and hit ~C-c C-t~ to bring up the state change buffer. Now we are going to hit ~b~ to set it to blocked. Once again a we are going to add a note to describe this state change. So add the text ~Bob is out of the office until tomorrow~ and then hit ~C-c C-c~ to save it. Now our task is set to ~BLOCKED~ and we have a nice note describing why.
+
+If you click in the Org Agenda pane on the right and then press ~r~ it will refresh your view. Doing so will now show that your first TODO is blocked while the others remain in their default state. Since we can't do anything more here, let's move on to our next TODO item.
 
 ** Start Working on TODO #2
 We hit a dead end on our first TODO so now we are moving on to the second task. Just like in the previous TODO we want to change the state from ~TODO~ to ~IN-PROGRESS~ and add a note. Reread the previous section if you forgot how to do that. For the note you can use ~Talking to Carla since Bob is gone~ and then save it like you did the last one. So at this point we have 3 TODOs that are all in different states. Click over to your Agenda pane (if you closed it you can easily reopen it with ~C-c a d~) and then type ~r~ to refresh the view. You should now see that your 3 TODOs are indeed all in different states.
@@ -170,7 +172,9 @@ It is important to note that Carla sent us a very important piece of information
 
 The URL in question is ~http:intranet.company.com/financial/reports/Q3-reports.xls~ and we want to save this to our current TODO. Start by copying the URL and then navigating to the end of the TODO. Hit return twice to start a new line and then type ~C-c C-l~ to create a new link. The mini buffer will appear with link options, but you are going to type ~C-y~ to paste your copied URL in. Once it is pasted, hit return. Now the mini buffer will prompt you to enter a description. Here you can type ~Intranet link to Carla's planning document~ and hit return. This is now a functioning URL that can be clicked on to open the link in your default web browser.
 
-Since Carla has responded with the information we needed and we logged the results of that conversation, this TODO is complete. All we should have to do is mark it as ~DONE~ and we can move to something else. To mark it as done go to the ~IN-PROGRESS~ line and hit ~C-c C-t~ to open up the state selector. From here type ~d~ to select done. Enter a note such as ~Got everything I needed from Carla~ and then hit ~C-c C-c~ to save it. This TODO is now complete and will appear so in the Agenda View once it is refreshed. 
+Since Carla has responded with the information we needed and we logged the results of that conversation, this TODO is complete. All we should have to do is mark it as ~DONE~ and we can move to something else. To mark it as done go to the ~IN-PROGRESS~ line and hit ~C-c C-t~ to open up the state selector. From here type ~d~ to select done. Enter a note such as ~Got everything I needed from Carla~ and then hit ~C-c C-c~ to save it.
+
+At this point if you look in the Agenda view you will see your 1st TODO that is blocked and your 3rd TODO that you haven't started, but where is your 2nd TODO? The completed item is there, it just isn't shown by default. Move your cursor to somewhere in the Calendar (it won't work if you are in one of the TODO lists) and press ~v~ to bring up the view buffer. From there hit ~l~ to enable the log view. Now you will see two things. First, you will see your TODO item that you recently completed and second you will notice that your meeting has appeared! And as a bonus, the time you spent in this meeting appears beside it. You can easily filter your meetings to see how your week looks like as well as produce reports showing how much time you spend in meetings.
 
 ** Start Working on TODO #3
 Before we do any work on this task we need to update the meta data associated with it. If you recall from the description this is due on Thursday (remember in this example it is Monday) at 11am. And while it is good that we recorded this deadline in the body of this TODO, it would be even better if there was a way of integrating this information into our TODO so it could be tracked in the Agenda View. Well good news for us, there is a way of handling deadlines.
@@ -212,7 +216,7 @@ In this case start the capture template with ~C-c c~ and then hit ~n~ to create 
 Lastly we are going to cover the journal entry capture template. This feature is meant to be a quick and easy way to log accomplishments at your job. If you find it useful consider looking up some of the Org Mode journal packages that offer more features. But for this case, this is meant as a very simple solution that allows you to jot down what you are doing on any given day. You can add as little or as much detail as you want. The goal is only to have an easy to reference record of what you do each day on the job. I personally have found this to be very useful at the end of the year when writing up my accomplishments for a performance review. It is very helpful to see what I've done throughout the year. 
 
 ** Filtering Tags
-So far we have only talked about creating content in Org Mode and then viewing it in the Agenda. However, the Agenda View has quite a bit of hidden functionality that we never talked about. For example, it has a very nice filtering capability. For example, to filter your TODOs by tag you would navigate to the Agenda View and type ~/~ followed by the tag you wished to search for. If you wanted to reset the Agenda View and clear the search you would type ~|~. The Agenda supports some very advanced filtering options which is far beyond the scope of this simple tutorial, but I encourage you to checkout the Org Manual's page on [[https://orgmode.org/manual/Filtering_002flimiting-agenda-items.html][filtering/limiting agenda items]].
+So far we have only talked about creating content in Org Mode and then viewing it in the Agenda. However, the Agenda View has quite a bit of hidden functionality that we never talked about. For example, it has a very nice filtering capability. To filter your TODOs by tag you would navigate to the Agenda View and type ~/~ followed by the tag you wished to search for. If you wanted to reset the Agenda View and clear the search you would type ~|~. The Agenda supports some very advanced filtering options which is far beyond the scope of this simple tutorial, but I encourage you to checkout the Org Manual's page on [[https://orgmode.org/manual/Filtering_002flimiting-agenda-items.html][filtering/limiting agenda items]].
 
 * Keyboard Shortcuts List
 There are a lot of keyboard shortcuts you can use with Emacs, several of which were mentioned in this guide. Veteran Emacs users will have already picked up on most of them or otherwise know how to find them, however new users will need a little help. That's why I'm including a all the shortcuts mentioned in this tutorial as well as other useful shortcuts in a handy table below.
@@ -244,3 +248,11 @@ I hope you found this simple tutorial useful. Emacs and Org Mode combine to make
 Likewise I want to stress to all new users that everything contained in this repo is just one way you can use Org Mode to organize your life. This isn't the *right* way because there is no universal *right* way, only a way that works for you. If you find some of these features useful but not others, then only use what you want. If you want to tweak the configurations listed here to better suite your tastes, then do so with my blessing. I sincerely hope that this software improves your life to the same degree it has improved mine. With that I leave you to go forth and do great things.
 
 
+
+
+include notes on A,B, and C levels of importance!
+
+include note about comment tags and how to activate them
+
+
+include a suggestion for my favorite dark mode theme
