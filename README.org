@@ -2,8 +2,7 @@
 #+author: James Stoup
 #+date:  <2024-01-12 Fri>
 
-**Quick Start Guide**
-
+* Quick Start Guide
 For more details see below, but this is the minimum you need to make this work.
 
 1. Backup your ~.emacs~ file if you have one (~mv ~/.emacs ~/.emacs.bak~)
@@ -11,22 +10,34 @@ For more details see below, but this is the minimum you need to make this work.
 3. Move it to your home directory (~mv ~/Downloads/.emacs ~/~)
 4. You are done, now restart ~emacs~ and take a look at the shortcut guide below
 
-* Welcome New Org Mode Users
+* Overview
+** Welcome New Org Mode Users
 So you want to use Org Mode, but you don't have 2 years to devote to teaching yourself Lisp? No problem. This repo was created just for you. Here you will find a simple solution that requires no additional lisp configuration on your part to work. It is ideal for users who are completely new to both Emacs and Org Mode. Simply drop this config file into your home directory, restart Emacs, and you are ready to go.
+** Org Mode with Default Settings
+What Org Mode looks like with the default settings:
 
+[[file:images/image-41-standard-defaults.png][standard org mode settings]]
+** Org Mode with Better Defaults
+And what Org Mode looks like with these Better Defaults:
+
+[[file:images/image-40-better-defaults.png][org mode with better defaults]]
+** Further Reading
 If you came here looking for a more in depth explanation of some of Org Mode's core features, please check out the very detailed write up I did in my [[https://github.com/james-stoup/emacs-org-mode-tutorial/][Emacs Org Mode Tutorial]]. For the new people, you don't need to read that document (it is huge and can be daunting) as it is designed for people who want to really customize their Org Mode configurations. However, it does provide a lot of useful explanations with screenshots, so maybe come back to it once you've gotten some more experience with Org Mode.
 * What Is This And Why Do I Need It?
+** Welcome New Users
 A lot of Emacs related documentation assumes you already know quite a bit about the system and the documentation that is geared for new users is often so densely packed with information that it can be difficult to orient yourself. In short, it can be overwhelming. This is especially true for new users who don't care about "THE POWER OF EMACS" but instead just want to try out Org Mode.
 
 The good news is that Org Mode "just works" right out of the box. The bad news is that the defaults are not great and without a lot of customization, it isn't clear *at all* that any of this stuff is actually useful. I discovered this first hand when I helped a new user get started in Org Mode. My ~.emacs~ file is over a thousand lines long with the Org Mode section easily spanning several hundreds lines. So when this new user saw my version of Org Mode and compared it to their version of Org Mode, they were rather disappointed. Where was the magic? Why did mine look fancy and theirs look so plain? And what did they have to do to get from where they were to where I was. I could have told them to just play with it for a year or two and then they would eventually get an idea of what they needed, but I knew if I did that they would just find another solution. What to do?
 
 I sent them the link I put above so they could check out my tutorial on designing your Org Mode configuration from scratch, but they didn't want that. In fact, they had no idea what they wanted. The only thing they were sure of was that they wanted it to be functional now. Not in a year, not after they had learned lisp, right now. So what I did was massively pare down my own Emacs configuration until it was a lean setup geared entirely towards Org Mode. No code completion, language servers, linters, git integration, or anything else that wasn't directly related to Org Mode. Then I further cleaned it up to make it as easy to use as possible. Finally, I helped them install this new config and gave them some minimal instructions on how to use it. Guess what? They loved it. And based on their response I realized that there were probably a lot of people who would appreciate a little help getting started with Org Mode. So if that is you, I think this repo might help you.
-* About This Repo
-This repo is designed to help brand new Emacs users become productive in Org Mode. This is not an Emacs tutorial, nor is it meant as an all encompassing Org Mode tutorial. I will explain all the basic key commands you will need to get started, but this is not a substitute for reading the [[https://orgmode.org/manual/][Official Org Mode Manual]].
-** Overview
-The ~.emacs~ file has two core parts to it. The first part deals with improving how Org Mode looks and functions at a basic level. The second core part of this configuration is the default values provided. For more info and specific implementation details, look over the ~org-better-defaults.org~ file in this repo.
 
-Here is a list of most of the primary enhancements provided:
+** About This Repo
+This repo is designed to help brand new Emacs users become productive in Org Mode. To that end this repo consist of two core elements. The first is the tutorial contained within in this README that will walk you through how to use Org Mode using a real world scenario. The second, is the ~.emacs~ file you need to enable all of the features mentioned in the tutorial.
+
+As a side note, this is not an Emacs tutorial, nor is it meant as an all encompassing tutorial on the vastness of Org Mode. There are many features that I simply can't cover without turning this into a small textbook. However, I will explain all the basic key commands you will need to get started. This is not a substitute for reading the [[https://orgmode.org/manual/][Official Org Mode Manual]] and I would highly encourage you to use that as a reference for future questions.
+
+** Summary of Features
+The ~.emacs~ file has two main parts to it. The first part deals with improving how Org Mode looks and functions at a basic level. The second part of this configuration is the default values provided. For more info and specific implementation details, look over the ~org-better-defaults.org~ file in this repo. Here is a list of most of the primary enhancements provided:
 
 *Improvements*
  - sets up default package repos
@@ -47,10 +58,48 @@ Here is a list of most of the primary enhancements provided:
  - colorized Tags
  - better fonts
  - better bullets
-** Installation
-To make your version of Emacs and Org Mode look like the screenshots below, download the ~.emacs~ file in this repo and either copy it into your existing ~.emacs~ file or overwrite it entirely. Then restart Emacs, open (or create) an Org file and you should a much nicer looking version of Org. To verify Org looks different you can download the ~org-better-defaults.org~ file in this repo and open it.
+* Installation
+** Installing the File
+To make your version of Emacs and Org Mode look like the screenshots below, download the ~.emacs~ file in this repo and either copy the contents into your existing ~.emacs~ file or overwrite it entirely. Then restart Emacs, open (or create) an Org file and you should a much nicer looking version of Org. To verify Org looks different you can download the ~org-better-defaults.org~ file in this repo and open it.
+** Selecting the Treemacs Project Root
+Treemacs is the file browser you will see on the left side of Emacs in all the screenshots here. Treemacs is incredibly useful not only because it shows you your files, but because it also will show you the headings contained within any Org files it finds. This is a wonderful way to easily scan through an Org document.
+
+When you start Emacs with this new ~.emacs~ file for the first time, you will get a dialog box that gives you the option of choosing the root directory for Treemacs. Once you have become more comfortable using Emacs, Org Mode, and Treemacs I encourage you to add new projects to Emacs and further tweak your setup to best suit your needs. However, in this case just select the ~org~ directory located in your home directory and click OK. Don't worry if you don't already have an ~org~ directory, Emacs will create one for you. This is where Emacs is going to expect to find all of your ~.org~ files. 
+** Light or Dark Mode
+I have found that most users prefer their text editor to have a dark theme and so all the screenshots here will reflect that. The theme used in this tutorial is called ~deeper-blue~. To change the theme follow these steps:
+
+1. From the top menu select: *Options* -> *Customize Emacs* -> *Custom Themes*
+2. Check the box beside ~deeper-blue~
+3. Click *Save Theme Settings*
+4. Type ~q~ to quit that menu
+5. Restart Emacs to properly load the theme
+
+The font colors defined in the ~.emacs~ file of this repo are different for light or dark modes. By default it is set to dark mode, however if you would like to change it simply open up your ~.emacs~ file and find this line:
+
+#+begin_src emacs-lisp
+(setq light-mode nil)
+#+end_src
+
+and change it to this:
+
+#+begin_src emacs-lisp
+(setq light-mode t)
+#+end_src
+
+Then restart Emacs. The colors should now be more in keeping with a light mode style.
+** Increasing the Font Size
+The last thing you might want to change is the font size. By default Emacs sets the font size to 10 point. That is pretty small. If, like me, you are old enough that your eyes don't like that, then here is how you increase the font.
+
+1. From the top menu select: *Options* -> *Set Default Font...*
+2. Select ~Source Code Pro Regular~ as the font
+3. Increase the font size to however large you would like
+4. Press the *Select* button
+5. From the top menu select: *Options* -> *Save Options*
+
+That's it. From now on Emacs should default to your larger font selection.   
+
 * I've Installed It, Now What?
-If you've already installed the config file and restarted Emacs, then it is time to begin your journey into productivity! Here are your next steps. First, finish reading this section so you understand the broad concepts that will be discussed here. Then, once you have a rough idea of the concepts, work your way through the tutorial so you can understand how someone might apply those concepts to real world tasks.
+If you've already installed the config file and restarted Emacs, then it is time to begin your journey into productivity! Here are your next steps. First, finish reading this section so you understand the broad concepts that will be discussed here. Then, once you have a rough idea of the concepts, work your way through the tutorial so you can understand how someone might apply those concepts to real world tasks. Finally, take what you have learned here and apply it to your own notes as you leverage what you've learned to become more productive.
 
 ** An Intro to this Org Mode Tutorial
 In this tutorial I am going to use the recurring example of someone who wants to use Org Mode to manage tasks at work. I have found that without a realistic example, many tutorials just become too abstract and confusing. So for the duration of this section each of these three concepts will be explained in relation to how they could support a workflow at a generic job. By the end of this tutorial you should have enough knowledge to create your own TODOs, track them in the Agenda, create new entries with the custom capture templates, and make use of tags to organize everything.
@@ -73,10 +122,6 @@ Here is an example TODO item entry that might appear in your ~todos.org~ file.
  I need to create a presentation detailing the end of quarter numbers. The regional manager Gary will be there so it should be impressive. This presentation also needs to include projections for the next two quarters.
 #+end_src
 
-Here is what this looks like in the default Org Mode view:
-
-![[file:images/image-4-org-default.png][default org settings]]
-
 Here is what it looks like with the Org Mode Better Defaults:
 
 ![[file:images/image-5-better-defaults.png][better defaults]]
@@ -95,7 +140,7 @@ So to quickly recap, TODOs contain your data and the Agenda is how you view your
 
 However, there is a better way. Let's say you decided to collect all of your sticky notes, random emails, and hand written notes so that you could create a bunch of TODOs. It would get tedious fairly quickly having to repeatedly enter the same basic format of a TODO over and over when all that really changed between TODOs is the data you are entering. It sure would be nice if there was a way to make that easier...
 
-Welcome to Capture Templates. This is a built-in way of bringing up a list of templates that allow you to rapidly enter the type of data you want without having to manually enter the boilerplate associated with it. By default, Org Mode only has template, a generic task. But we can do better than that. In this config there are 4 capture templates to choose from:
+Welcome to Capture Templates. This is a built-in way of bringing up a list of templates that allow you to rapidly enter the type of data you want without having to manually enter the boilerplate associated with it. By default, Org Mode only has one template, a generic task. But we can do better than that. In this config there are 4 capture templates to choose from:
 
 - TODO (t)
 - Journal Entry (j)
@@ -271,3 +316,12 @@ I hope you found this simple tutorial useful. Emacs and Org Mode combine to make
 
 Likewise I want to stress to all new users that everything contained in this repo is just one way you can use Org Mode to organize your life. This isn't the *right* way because there is no universal *right* way, only a way that works for you. If you find some of these features useful but not others, then only use what you want. If you want to tweak the configurations listed here to better suite your tastes, then do so with my blessing. I sincerely hope that this software improves your life to the same degree it has improved mine. With that I leave you to go forth and do great things.
 
+
+
+
+include notes on A,B, and C levels of importance!
+
+include note about comment tags and how to activate them
+
+
+include a suggestion for my favorite dark mode theme
