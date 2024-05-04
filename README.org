@@ -16,11 +16,11 @@ So you want to use Org Mode, but you don't have 2 years to devote to teaching yo
 ** Org Mode with Default Settings
 What Org Mode looks like with the default settings:
 
-[[file:images/image-41-standard-defaults.png][standard org mode settings]]
+![[file:images/image-41-standard-defaults.png][standard org mode settings]]
 ** Org Mode with Better Defaults
 And what Org Mode looks like with these Better Defaults:
 
-[[file:images/image-40-better-defaults.png][org mode with better defaults]]
+![[file:images/image-40-better-defaults.png][org mode with better defaults]]
 ** Further Reading
 If you came here looking for a more in depth explanation of some of Org Mode's core features, please check out the very detailed write up I did in my [[https://github.com/james-stoup/emacs-org-mode-tutorial/][Emacs Org Mode Tutorial]]. For the new people, you don't need to read that document (it is huge and can be daunting) as it is designed for people who want to really customize their Org Mode configurations. However, it does provide a lot of useful explanations with screenshots, so maybe come back to it once you've gotten some more experience with Org Mode.
 * What Is This And Why Do I Need It?
