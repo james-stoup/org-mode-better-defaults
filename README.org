@@ -63,7 +63,7 @@ These steps will walk you through how to make your version of Emacs look and fee
 ** Installing the File
 To make your version of Emacs and Org Mode look like the screenshots below, download the ~.emacs~ file in this repo and either copy the contents into your existing ~.emacs~ file or overwrite it entirely, then restart Emacs. The first time you do this Emacs is going to download and install a bunch of files. There will be lots of install and configuration messages printed to various buffers and the entire thing might look a bit intimidating. Once you've installed everything it might look something like this:
 
-[[file:images/image-3-fonts-installed.png][initial Emacs install]]
+![[file:images/image-3-fonts-installed.png][initial Emacs install]]
 
 Don't worry if yours looks different. Just let the install finish (it will stop print log messages when its done) and then close it and restart Emacs. Things should look much better at that point.
 
@@ -311,22 +311,23 @@ There are two ways to activate each task mentioned in the table below. The easie
 
 The second way of activating a task is to call the function directly. To do this press ~M-x~ and type in the function name. This is very useful because as you type, the list of available functions narrows. This is a great way to discover new functionality. Additionally you can type words separated by a space to see every function that matches those words. For example, after hitting ~M-x~ if you were to type ~org time~ you would get 18 results. Such as ~org-timer~, ~org-timestamp-up~, and ~org-clone-subtree-with-time-shift~ just to name a few. If a function has a shortcut, you will see it beside the function name. I encourage you to play around with this to discover new ways of using the various packages installed here.
 
-|--------------------------------------+-----------+------------------------------+-------------------------------------------|
-| TASK                                 | SHORTCUT  | FUNCTION                     | NOTES                                     |
-|--------------------------------------+-----------+------------------------------+-------------------------------------------|
-| Open the Capture Template            | ~C-c c~   | ~org-capture~                | Create a new TODO, Meeting, etc.          |
-| Open the Agenda                      | ~C-c a~   | ~org-agenda~                 | View your calendar and all TODOs          |
-| Save your new TODO, Meeting, etc.    | ~C-c C-c~ | N/A                          | Do this to save your item                 |
-| Discard your new TODO, Meeting, etc. | ~C-c C-k~ | N/A                          | Cancel out of the capture template        |
-| Change the TODO state                | ~C-c C-t~ | ~org-todo~                   | Use this to go from TODO to IN-PROGRESS   |
-| Select a deadline for a TODO         | ~C-c C-d~ | ~org-deadline~               | This accepts syntax like ~+3d 11am~       |
-| Turn Treemacs on/off                 | ~C-x t t~ | ~treemacs~                   | The file browser on the left side         |
-| Maximize the current pane            | ~C-x 1~   | ~delete-other-windows~       | Make this pane the only one I see         |
-| Split window top and bottom          | ~C-x 2~   | ~split-window-below~         | Make two panes, one above and below       |
-| Split window left and right          | ~C-x 3~   | ~split-window-right~         | Make two panes, one on the right and left |
-| Save your file                       | ~C-x C-s~ | ~save-buffer~                | Saves your current file                   |
-| Close Emacs                          | ~C-x C-c~ | ~save-buffers-kill-terminal~ | Save your files and close Emacs           |
-|--------------------------------------+-----------+------------------------------+-------------------------------------------|
+|--------------------------------------+-----------+------------------------------+------------------------------------------------|
+| TASK                                 | SHORTCUT  | FUNCTION                     | NOTES                                          |
+|--------------------------------------+-----------+------------------------------+------------------------------------------------|
+| Open the Capture Template            | ~C-c c~   | ~org-capture~                | Create a new TODO, Meeting, etc.               |
+| Open the Agenda                      | ~C-c a~   | ~org-agenda~                 | View your calendar and all TODOs               |
+| Save your new TODO, Meeting, etc.    | ~C-c C-c~ | N/A                          | Do this to save your item                      |
+| Discard your new TODO, Meeting, etc. | ~C-c C-k~ | N/A                          | Cancel out of the capture template             |
+| Change the TODO state                | ~C-c C-t~ | ~org-todo~                   | Use this to go from TODO to IN-PROGRESS        |
+| Select a deadline for a TODO         | ~C-c C-d~ | ~org-deadline~               | This accepts syntax like ~+3d 11am~            |
+| Turn Treemacs on/off                 | ~C-x t t~ | ~treemacs~                   | The file browser on the left side              |
+| Maximize the current pane            | ~C-x 1~   | ~delete-other-windows~       | Make this pane the only one I see              |
+| Split window top and bottom          | ~C-x 2~   | ~split-window-below~         | Make two panes, one above and below            |
+| Split window left and right          | ~C-x 3~   | ~split-window-right~         | Make two panes, one on the right and left      |
+| Save your file                       | ~C-x C-s~ | ~save-buffer~                | Saves your current file                        |
+| Close Emacs                          | ~C-x C-c~ | ~save-buffers-kill-terminal~ | Save your files and close Emacs                |
+| Hide/Show Heading                    | ~TAB~     | N/A                          | Keep hitting the TAB key to hide/show headings |
+|--------------------------------------+-----------+------------------------------+------------------------------------------------|
 
 * Beyond This Tutorial
 I hope you found this simple tutorial useful. Emacs and Org Mode combine to make a very versatile piece of software that has many unique uses. I encourage everyone who finds this interesting to explore more of Org Mode's functionality. This tutorial only touched on the very basics so as not to overwhelm new users, but if this interests you, please keep digging. There are still so many secrets to find!
