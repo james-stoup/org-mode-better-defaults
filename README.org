@@ -265,22 +265,26 @@ From there hit ~l~ to enable the log view. Now you will see two things. First, y
 ** Start Working on TODO #3
 Before we do any work on this task we need to update the meta data associated with it. If you recall from the description this is due on Thursday (remember in this example it is Monday) at 11am. And while it is good that we recorded this deadline in the body of this TODO, it would be even better if there was a way of integrating this information into our TODO so it could be tracked in the Agenda View. Well good news for us, there is a way of handling deadlines.
 
+![[file:images/image-21-set-deadline.png][selecting a deadline]]
+
 Start by navigating to the third and final action item called ~Compile results and send final report to Alice~ and hit ~C-c C-d~ to bring up the deadline selector. Now there are several different ways we could enter a date. We could type it out in one of several formats or we could click on the desired day in the calendar up top. However, we are lazy so we are going to specify the deadline in the easy manner possible. Since it is Monday and we want to make our deadline for Thursday at 11am, when the mini buffer appears so we can select a date, simply enter ~+3d 11am~ and hit return. This creates a deadline 3 days in the future at 11am. Now when we refresh the Agenda View we will see that this TODO is special! Because it has a deadline marked on it.
 
 We are going to assume that Bob has returned on Tuesday and gotten us the information we need. So in that case we can change the first TODO from ~BLOCKED~ and to ~DONE~. At this point we can actually start work on the 3rd TODO.
 
 So, the deadline has been added so go ahead and set the state to ~IN-PROGRESS~ just like we've done twice before. Add a note of your choice explaining what you started working on. After the state has been changed we could add additional notes to this TODO that might describe the order we wanted our report to be in, a list of graphs and tables to include, or links to templates that should be used for these types of company reports. You can also make new subheadings by hitting ~C=return~ and then hitting ~tab~ to move the heading over. Subheadings should be labeled in ways that make sense to your task. You can easily rearrange headings by holding the ~alt~ key and pressing the ~up~ or ~down~ arrow.
 
+![[file:images/image-22-todo-3-in-progress.png][working todo 3]]
+
 ** A New TODO
 At this point in the tutorial we will assume that two days have passed and you completed your report and sent it to Alice. You can now close those remaining TODOs and then refresh your Agenda to verify that they are closed. Now that all of our current tasks are complete we can focus on a new email from Alice. In it she tells us that she liked our report so much that she wants us to generate another report that forecasts the purchasing requirements of the next fiscal year. It also needs to have more details, more graphics, and should be presented to management in a week at the end of the month planning meeting. Since this new task didn't come in a meeting we are going to create a new TODO using the TODO capture template.
 
 Fire up the Capture Template with ~C-c c~ only this time hit ~t~ to create a new TODO. For the tags in the mini buffer put ~report~ and hit return. You will now see a new TODO template and your cursor will be on the heading line. Now we can enter a heading. Type in ~Create yearly report and presentation~ as your title. You can now press the down key or press ~C-n~ to go to the next line. Here you are going to enter the details ~I need to create another forecasting report as well as a presentation and present my findings to management in one week.~ Once you've added your description it is time to save your TODO. Press ~C-c C-c~ to save it.
 
-<TODO BEFORE SAVE PIC>
+![[file:images/image-23-new-todo.png][new todo]]
 
 As soon as you save your new TODO entry a file will appear on the left hand side of your screen under the ~org~ folder. This new file is called ~todos.org~ and it has been created in the ~org~ directory, which itself is helpfully located in your home directory. Go ahead and click on the ~todos.org~ file in Treemacs and hit ~tab~. It will expand the file in Treemacs and show you the headings. At the moment there is only one heading, the TODO you created. We want to get a closer look at this TODO, so with the ~todos.org~ file still highlighted, hit return. This will open the file ~todos.org~ in the other window and allow you to edit it.
 
-<TREEMACS AND TODO FILE PIC>
+![[file:images/image-24-creating-check-boxes.png][checkboxes]]
 
 ** Working the TODO
 This TODO is going to behave in the same way that the action items worked. You can change the state, set a deadline, add notes, etc. I encourage you to set it to ~IN-PROGRESS~, add your own note, and add a few lines describing what you are going to do. After you do that we are going to look at some more advanced ways of organizing your notes.
@@ -294,6 +298,8 @@ Once you've finished adding all the subtasks, go back to the first subtask calle
 Things are really starting to take shape. We now have one sub heading that tracks all of our subtasks, now we need another heading for our presentation notes. So hit ~C-Return~ and then ~tab~ to create a new 2nd level sub heading and name this one ~Presentation Notes~. Here you would add notes on what you want to say in your presentation. Slides to use, people to thank, etc. Each subheading should relate to a different part of this project.
 
 Additional subheadings can be created as needed to further reflect other sources, ideas, or notes you wish to take. I've added a simple table as an example of how Org Mode treats tabular data. Read up on tables in the Org Manual to see all the amazing things it can do.
+
+![[file:images/image-25-adding-tables.png][tables]]
 
 ** Make a note
 At this point in the Tutorial we have covered most of the major concepts so I'm going to just end on a few simple things Org Mode can do for you. Perhaps the simplest thing is just a basic note. This note doesn't have a TODO associated with it, nor does it have a deadline, or even a tag. It is just a simple way of remembering something. I like to keep a notes file filled with random things that don't really belong anywhere. Since you can setup Emacs to search your org files (go look up Projectile among others) it is easy to find a specific note once you know what you are looking for.
