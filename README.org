@@ -118,6 +118,24 @@ That is it. Now your system should look like the one used in this tutorial.
 * I've Installed It, Now What?
 If you've already installed the config file and restarted Emacs, then it is time to begin your journey into productivity! Here are your next steps. First, finish reading this section so you understand the broad concepts that will be discussed here. Then, once you have a rough idea of the concepts, work your way through the tutorial so you can understand how someone might apply those concepts to real world tasks. Finally, take what you have learned here and apply it to your own notes as you leverage what you've learned to become more productive.
 
+** A Brief Overview of Org Mode Syntax
+Before we get much further we need to review Org Mode's syntax and highlight how it differs from Markdown. For example, Org Mode uses stars (~*~) to show indentation while Markdown uses the hash sign (~#~). In both cases more stars or hashes indicates deeper levels. To better illustrate this I've included a table showing the most common formats in each style.
+
+|-------------------+-------------------+-----------------|
+| FORMAT            | ORG MODE          | MARKDOWN        |
+|-------------------+-------------------+-----------------|
+| 1st level heading | ~* heading 1~     | ~# heading 1~   |
+| 2nd level heading | ~** heading 2~    | ~## heading 1~  |
+| 3rd level heading | ~*** heading 3~   | ~### heading 1~ |
+| Bold              | ~*bold*~          | ~**bold**~      |
+| Italic            | ~/italic/~        | ~*italic*~      |
+| Strikethrough     | ~+strike+~        | ~~~strike~~~    |
+| Code              | ~~code~~          | ~`code`~        |
+| Quote             | ~=quote=~         | ~> quote~       |
+| Bullet            | ~- bullet~        | ~- bullet~      |
+| Link              | ~[[link][title]]~ | ~[title](link)~ |
+|-------------------+-------------------+-----------------|
+
 ** An Intro to this Org Mode Tutorial
 In this tutorial I am going to use the recurring example of someone who wants to use Org Mode to manage tasks at work. I have found that without a realistic example, many tutorials just become too abstract and confusing. So for the duration of this section each of these three concepts will be explained in relation to how they could support a workflow at a generic job. By the end of this tutorial you should have enough knowledge to create your own TODOs, track them in the Agenda, create new entries with the custom capture templates, and make use of tags to organize everything.
 
@@ -242,7 +260,7 @@ If you click in the Org Agenda pane on the right and then press ~r~ it will refr
 ** Start Working on TODO #2
 We hit a dead end on our first TODO so now we are moving on to the second task. Just like in the previous TODO we want to change the state from ~TODO~ to ~IN-PROGRESS~ and add a note. Reread the previous section if you forgot how to do that. For the note you can use ~Talking to Carla since Bob is gone~ and then save it like you did the last one. So at this point we have 3 TODOs that are all in different states. Click over to your Agenda pane (if you closed it you can easily reopen it with ~C-c a d~) and then type ~r~ to refresh the view. You should now see that your 3 TODOs are indeed all in different states.
 
-As we did before, navigate to the end of the body of this TODO, it return twice, and update it with what you are currently doing. Here we could add something like ~Emailing Carla for her data while I wait for Bob to get back to me.~ which summarizes the steps you are taking. Once again we assume that you contacted Carla over your company's email system and requested the information you require. However this time we are in luck because Carla responds fairly quickly with a link to the company's intranet where the data you want is stored. You click on the link, view the data, extract what you need, and add it to the Word document you working on. Of course, you could write everything in Org Mode and then export it to one of a dozen formats (and in fact this is what I do for my job) but for beginners I would use Org to track my notes and then something like Word to format the actual document.
+As we did before, navigate to the end of the body of this TODO, hit return twice, and update it with what you are currently doing. Here we could add something like ~Emailing Carla for her data while I wait for Bob to get back to me.~ which summarizes the steps you are taking. Once again we assume that you contacted Carla over your company's email system and requested the information you require. However this time we are in luck because Carla responds fairly quickly with a link to the company's intranet where the data you want is stored. You click on the link, view the data, extract what you need, and add it to the Word document you working on. Of course, you could write everything in Org Mode and then export it to one of a dozen formats (and in fact this is what I do for my job) but for beginners I would use Org to track my notes and then something like Word to format the actual document.
 
 ![[file:images/image-17-link-to-doc.png][adding a link to a TODO]]
 
@@ -307,7 +325,7 @@ At this point in the Tutorial we have covered most of the major concepts so I'm 
 In this case start the capture template with ~C-c c~ and then hit ~n~ to create a new note. You can give it a tag, but you don't need to. For this note call it ~Office Supplies~, hit return, and then add the note ~The code for the supply closet is 223344~. File your note with the usual ~C-c C-c~ and you have created a simple note. While it is hardly as exciting as the other features we've covered, it is still a useful thing to have.
 
 ** Record a journal entry
-Lastly we are going to cover the journal entry capture template. This feature is meant to be a quick and easy way to log accomplishments at your job. If you find it useful consider looking up some of the Org Mode journal packages that offer more features. But for this case, this is meant as a very simple solution that allows you to jot down what you are doing on any given day. You can add as little or as much detail as you want. The goal is only to have an easy to reference record of what you do each day on the job. I personally have found this to be very useful at the end of the year when writing up my accomplishments for a performance review. It is very helpful to see what I've done throughout the year. 
+Lastly, the journal entry capture template. This feature is meant to be a quick and easy way to log accomplishments at your job. If you find it useful consider looking up some of the Org Mode journal packages that offer more features. But for this case, this is meant as a very simple solution that allows you to jot down what you are doing on any given day. You can add as little or as much detail as you want. The goal is only to have an easy to reference record of what you do each day on the job. I personally have found this to be very useful at the end of the year when writing up my accomplishments for a performance review. It is very helpful to see what I've done throughout the year. 
 
 ** Filtering Tags
 So far we have only talked about creating content in Org Mode and then viewing it in the Agenda. However, the Agenda View has quite a bit of hidden functionality that we never talked about. For example, it has a very nice filtering capability. To filter your TODOs by tag you would navigate to the Agenda View and type ~/~ followed by the tag you wished to search for. If you wanted to reset the Agenda View and clear the search you would type ~|~. The Agenda supports some very advanced filtering options which is far beyond the scope of this simple tutorial, but I encourage you to checkout the Org Manual's page on [[https://orgmode.org/manual/Filtering_002flimiting-agenda-items.html][filtering/limiting agenda items]].

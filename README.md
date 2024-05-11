@@ -1,45 +1,46 @@
 
 # Table of Contents
 
-1.  [Quick Start Guide](#org12821af)
-2.  [A Quick Overview](#org84dc8a1)
-    1.  [Welcome New Org Mode Users](#org05e913d)
-    2.  [Org Mode with Default Settings](#org50f54fe)
-    3.  [Org Mode with Better Defaults](#orga70442b)
-3.  [What Is This And Why Do I Need It?](#orga64c507)
-    1.  [Learning Org Mode is Hard](#orgbccf2a1)
-    2.  [About This Repo](#org66ef180)
-    3.  [Summary of Features](#orgc0ede6d)
-4.  [Installation](#org5a9db90)
-    1.  [Installing the File](#orgfaf4acb)
-    2.  [Selecting the Treemacs Project Root](#orga40ab02)
-    3.  [Light or Dark Mode](#org2723a2f)
-    4.  [Increasing the Font Size](#orgc120dc8)
-    5.  [Installing Icons](#org1051c8d)
-5.  [I've Installed It, Now What?](#org0bdb1f7)
-    1.  [An Intro to this Org Mode Tutorial](#orgee3faf8)
-    2.  [Tracking Work with TODOs](#orga58ce51)
-    3.  [Understanding the Agenda](#org4fb3369)
-    4.  [Using Capture Templates](#org9fbae82)
-6.  [A Practical Walkthrough](#org51bce50)
-    1.  [Monday Morning Meeting](#org216c8f0)
-    2.  [Filling in the Action Items](#org9eca1fd)
-    3.  [View the Agenda](#org018a2b5)
-    4.  [Start Working on TODO #1](#orgb526906)
-    5.  [Start Working on TODO #2](#orge63d0e1)
-    6.  [Start Working on TODO #3](#orgf879430)
-    7.  [A New TODO](#org3dab517)
-    8.  [Working the TODO](#orgbaed559)
-    9.  [Make a note](#org37bd57c)
-    10. [Record a journal entry](#orgc25dd34)
-    11. [Filtering Tags](#orgdc9ba5d)
-7.  [Keyboard Shortcuts List](#org8235f0e)
-8.  [Beyond This Tutorial](#orgc14db0d)
-9.  [Further Reading](#org662c3e5)
+1.  [Quick Start Guide](#org0198f08)
+2.  [A Quick Overview](#org10c3717)
+    1.  [Welcome New Org Mode Users](#orge8e1b3d)
+    2.  [Org Mode with Default Settings](#org07aeece)
+    3.  [Org Mode with Better Defaults](#orgb126331)
+3.  [What Is This And Why Do I Need It?](#org2bd5e63)
+    1.  [Learning Org Mode is Hard](#org09c5925)
+    2.  [About This Repo](#org75662db)
+    3.  [Summary of Features](#orgaa515cc)
+4.  [Installation](#org34a0ad5)
+    1.  [Installing the File](#org65a15df)
+    2.  [Selecting the Treemacs Project Root](#orgcfaee6f)
+    3.  [Light or Dark Mode](#org89a5fe2)
+    4.  [Increasing the Font Size](#orgc8a3244)
+    5.  [Installing Icons](#org9ccfdd7)
+5.  [I've Installed It, Now What?](#org6136112)
+    1.  [A Brief Overview of Org Mode Syntax](#org47d6081)
+    2.  [An Intro to this Org Mode Tutorial](#orgcd801d6)
+    3.  [Tracking Work with TODOs](#org075133d)
+    4.  [Understanding the Agenda](#org05e781f)
+    5.  [Using Capture Templates](#org83bc6f2)
+6.  [A Practical Walkthrough](#org2b9faec)
+    1.  [Monday Morning Meeting](#org6cd15ff)
+    2.  [Filling in the Action Items](#orgfa770ea)
+    3.  [View the Agenda](#orga33516e)
+    4.  [Start Working on TODO #1](#orgadf63b5)
+    5.  [Start Working on TODO #2](#orgcab6e04)
+    6.  [Start Working on TODO #3](#org67ce21c)
+    7.  [A New TODO](#orgac17509)
+    8.  [Working the TODO](#org5677a95)
+    9.  [Make a note](#orgb6b0dab)
+    10. [Record a journal entry](#org9da69e9)
+    11. [Filtering Tags](#org4fe999e)
+7.  [Keyboard Shortcuts List](#org82a316c)
+8.  [Beyond This Tutorial](#org2bd97b1)
+9.  [Further Reading](#org74ddf1b)
 
 
 
-<a id="org12821af"></a>
+<a id="org0198f08"></a>
 
 # Quick Start Guide
 
@@ -51,19 +52,19 @@ For more details see below, but this is the minimum you need to make this work.
 4.  You are done, now restart `emacs` and take a look at the shortcut guide below
 
 
-<a id="org84dc8a1"></a>
+<a id="org10c3717"></a>
 
 # A Quick Overview
 
 
-<a id="org05e913d"></a>
+<a id="orge8e1b3d"></a>
 
 ## Welcome New Org Mode Users
 
 So you want to use Org Mode, but you don't have 2 years to devote to teaching yourself Lisp? No problem. This repo was created just for you. Here you will find a simple solution that requires no additional lisp configuration on your part to work. It is ideal for users who are completely new to both Emacs and Org Mode. Simply drop this config file into your home directory, restart Emacs, and you are ready to go.
 
 
-<a id="org50f54fe"></a>
+<a id="org07aeece"></a>
 
 ## Org Mode with Default Settings
 
@@ -72,7 +73,7 @@ What Org Mode looks like with the default settings:
 ![standard org mode settings](images/image-41-standard-defaults.png)
 
 
-<a id="orga70442b"></a>
+<a id="orgb126331"></a>
 
 ## Org Mode with Better Defaults
 
@@ -81,12 +82,12 @@ And what Org Mode looks like with these Better Defaults:
 ![org mode with better defaults](images/image-40-better-defaults.png)
 
 
-<a id="orga64c507"></a>
+<a id="org2bd5e63"></a>
 
 # What Is This And Why Do I Need It?
 
 
-<a id="orgbccf2a1"></a>
+<a id="org09c5925"></a>
 
 ## Learning Org Mode is Hard
 
@@ -97,7 +98,7 @@ The good news is that Org Mode "just works" right out of the box. The bad news i
 I sent them the link I put above so they could check out my tutorial on designing your Org Mode configuration from scratch, but they didn't want that. In fact, they had no idea what they wanted. The only thing they were sure of was that they wanted it to be functional now. Not in a year, not after they had learned lisp, right now. So what I did was massively pare down my own Emacs configuration until it was a lean setup geared entirely towards Org Mode. No code completion, language servers, linters, git integration, or anything else that wasn't directly related to Org Mode. Then I further cleaned it up to make it as easy to use as possible. Finally, I helped them install this new config and gave them some minimal instructions on how to use it. Guess what? They loved it. And based on their response I realized that there were probably a lot of people who would appreciate a little help getting started with Org Mode. So if that is you, I think this repo might help you.
 
 
-<a id="org66ef180"></a>
+<a id="org75662db"></a>
 
 ## About This Repo
 
@@ -106,7 +107,7 @@ This repo is designed to help brand new Emacs users become productive in Org Mod
 As a side note, this is not an Emacs tutorial, nor is it meant as an all encompassing tutorial on the vastness of Org Mode. There are many features that I simply can't cover without turning this into a small textbook. However, I will explain all the basic key commands you will need to get started. This is not a substitute for reading the [Official Org Mode Manual](https://orgmode.org/manual/) and I would highly encourage you to use that as a reference for future questions.
 
 
-<a id="orgc0ede6d"></a>
+<a id="orgaa515cc"></a>
 
 ## Summary of Features
 
@@ -134,14 +135,14 @@ The `.emacs` file has two main parts to it. The first part deals with improving 
 -   better bullets
 
 
-<a id="org5a9db90"></a>
+<a id="org34a0ad5"></a>
 
 # Installation
 
 These steps will walk you through how to make your version of Emacs look and feel exactly like the version shown in all the screen shots here. I would recommend new users follow these steps so everything looks the same as the tutorial to minimize confusion. However, afterwards feel free to install additional themes, fonts, or UI packages.
 
 
-<a id="orgfaf4acb"></a>
+<a id="org65a15df"></a>
 
 ## Installing the File
 
@@ -152,7 +153,7 @@ To make your version of Emacs and Org Mode look like the screenshots below, down
 Don't worry if yours looks different. Just let the install finish (it will stop print log messages when its done) and then close it and restart Emacs. Things should look much better at that point.
 
 
-<a id="orga40ab02"></a>
+<a id="orgcfaee6f"></a>
 
 ## Selecting the Treemacs Project Root
 
@@ -161,7 +162,7 @@ You will get a Treemacs dialog box when you launch Emacs for the first time with
 Treemacs is incredibly useful not only because it displays your files, but because it also shows you the headings contained within any Org files it finds. This is a wonderful way to easily scan through an Org document. You will see the Treemacs file browser on the left hand side of all the screenshots here.
 
 
-<a id="org2723a2f"></a>
+<a id="org89a5fe2"></a>
 
 ## Light or Dark Mode
 
@@ -184,7 +185,7 @@ and change it to this:
 Then restart Emacs. The colors should now be more in keeping with a light mode style.
 
 
-<a id="orgc120dc8"></a>
+<a id="orgc8a3244"></a>
 
 ## Increasing the Font Size
 
@@ -199,7 +200,7 @@ The last UI option that you might want to change is the font size. By default Em
 That's it. From now on Emacs should default to your larger font selection.   
 
 
-<a id="org1051c8d"></a>
+<a id="org9ccfdd7"></a>
 
 ## Installing Icons
 
@@ -212,14 +213,111 @@ Part of the new defaults you have installed is support for All The Icons. This a
 That is it. Now your system should look like the one used in this tutorial. 
 
 
-<a id="org0bdb1f7"></a>
+<a id="org6136112"></a>
 
 # I've Installed It, Now What?
 
 If you've already installed the config file and restarted Emacs, then it is time to begin your journey into productivity! Here are your next steps. First, finish reading this section so you understand the broad concepts that will be discussed here. Then, once you have a rough idea of the concepts, work your way through the tutorial so you can understand how someone might apply those concepts to real world tasks. Finally, take what you have learned here and apply it to your own notes as you leverage what you've learned to become more productive.
 
 
-<a id="orgee3faf8"></a>
+<a id="org47d6081"></a>
+
+## A Brief Overview of Org Mode Syntax
+
+Before we get much further we need to review Org Mode's syntax and highlight how it differs from Markdown. For example, Org Mode uses stars (`*`) to show indentation while Markdown uses the hash sign (`#`). In both cases more stars or hashes indicates deeper levels. To better illustrate this I've included a table showing the most common formats in each style.
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">FORMAT</th>
+<th scope="col" class="org-left">ORG MODE</th>
+<th scope="col" class="org-left">MARKDOWN</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="org-left">1st level heading</td>
+<td class="org-left"><code>* heading 1</code></td>
+<td class="org-left"><code># heading 1</code></td>
+</tr>
+
+
+<tr>
+<td class="org-left">2nd level heading</td>
+<td class="org-left"><code>** heading 2</code></td>
+<td class="org-left"><code>## heading 1</code></td>
+</tr>
+
+
+<tr>
+<td class="org-left">3rd level heading</td>
+<td class="org-left"><code>*** heading 3</code></td>
+<td class="org-left"><code>### heading 1</code></td>
+</tr>
+
+
+<tr>
+<td class="org-left">Bold</td>
+<td class="org-left"><code>*bold*</code></td>
+<td class="org-left"><code>**bold**</code></td>
+</tr>
+
+
+<tr>
+<td class="org-left">Italic</td>
+<td class="org-left"><code>/italic/</code></td>
+<td class="org-left"><code>*italic*</code></td>
+</tr>
+
+
+<tr>
+<td class="org-left">Strikethrough</td>
+<td class="org-left"><code>+strike+</code></td>
+<td class="org-left"><code>~~strike~~</code></td>
+</tr>
+
+
+<tr>
+<td class="org-left">Code</td>
+<td class="org-left"><code>~code~</code></td>
+<td class="org-left"><code>`code`</code></td>
+</tr>
+
+
+<tr>
+<td class="org-left">Quote</td>
+<td class="org-left"><code>=quote=</code></td>
+<td class="org-left"><code>&gt; quote</code></td>
+</tr>
+
+
+<tr>
+<td class="org-left">Bullet</td>
+<td class="org-left"><code>- bullet</code></td>
+<td class="org-left"><code>- bullet</code></td>
+</tr>
+
+
+<tr>
+<td class="org-left">Link</td>
+<td class="org-left"><code>[[link][title]]</code></td>
+<td class="org-left"><code>[title](link)</code></td>
+</tr>
+</tbody>
+</table>
+
+
+<a id="orgcd801d6"></a>
 
 ## An Intro to this Org Mode Tutorial
 
@@ -234,7 +332,7 @@ To start off we are going to talk briefly about the three core concepts that mak
 Each of these topics will be covered below in more detail and by the end of this document, you should have a good idea of how to use the basics of Org Mode.
 
 
-<a id="orga58ce51"></a>
+<a id="org075133d"></a>
 
 ## Tracking Work with TODOs
 
@@ -250,7 +348,7 @@ Here is what it looks like with the Org Mode Better Defaults:
 ![better defaults](images/image-5-better-defaults.png)
 
 
-<a id="org4fb3369"></a>
+<a id="org05e781f"></a>
 
 ## Understanding the Agenda
 
@@ -263,7 +361,7 @@ Here is an example of the agenda in action.
 To bring up the Agenda hit `C-c a` and then select the agenda view you want to use. To follow along with this tutorial, use the `Daily Agenda and All TODOs` option by typing `d` at the agenda prompt. Don't worry if this doesn't seem to make sense right now. This section only contains brief explanations of what the core concepts, not a detailed breakdown of every feature. In the Practical Walkthrough section below all of the steps needed to interact with Org Mode will be clearly labeled so that even a total novice can use it.
 
 
-<a id="org9fbae82"></a>
+<a id="org83bc6f2"></a>
 
 ## Using Capture Templates
 
@@ -281,7 +379,7 @@ Welcome to Capture Templates. This is a built-in way of bringing up a list of te
 Each one captures a specific type of data into a different org file. To access a capture template first press `C-c c` to bring up the list of available templates. Then press the letter designating the template you want to launch. The shortcut letters are shown beside their template in the list above.
 
 
-<a id="org51bce50"></a>
+<a id="org2b9faec"></a>
 
 # A Practical Walkthrough
 
@@ -294,7 +392,7 @@ To start this tutorial just launch Emacs. You don't have to open a specific file
 ![fresh install](images/image-6-blank-slate.png)
 
 
-<a id="org216c8f0"></a>
+<a id="org6cd15ff"></a>
 
 ## Monday Morning Meeting
 
@@ -315,7 +413,7 @@ Now the meeting has started so navigate to the `Notes` section and begin filling
 At the end of the meeting Alice tasks you with getting the numbers from Bob and Carla, checking our available funds, and writing up a recommendation to her by 11am Thursday morning. Now that we know what our tasking is, we need to decide how we should store this info. Thankfully our meeting template has one more heading, `Action Items`! Action Items are tasks that get assigned to us in meetings. Not every meeting will produce Action Items, so for those that don't we can just delete those lines before we save our meeting.
 
 
-<a id="org9eca1fd"></a>
+<a id="orgfa770ea"></a>
 
 ## Filling in the Action Items
 
@@ -330,7 +428,7 @@ Once again type in the TODO template that you used for the previous item. The ti
 Now that all the action items have been finished and the meeting is over, we can save this meeting. To do that hit `C-c C-c` and it will file it away. Once you do that you will see a new file appear underneath the org folder on the left. This new file called `meetings.org` was created when you saved your new meeting.
 
 
-<a id="org018a2b5"></a>
+<a id="orga33516e"></a>
 
 ## View the Agenda
 
@@ -351,7 +449,7 @@ Any item in the Agenda view can always be followed back to its source. Remember,
 You might be wondering where the meeting you just created is. After all, you see the 3 action items, but where is the meeting that you were just in? Well, the meeting won't show up by default for reasons that you don't care about right now. However, there is a really useful setting we can turn on to show extra details. Navigate to the `Week-agenda` and put your cursor anywhere within the calendar. This won't work if your cursor is in the TODO sections as this is strictly a calendar setting. Once there, hit `v` to bring up the View options in the mini buffer. We want to enable the log view, so to do that, hit the `l` key. Now we see our meeting~ And as a bonus we also see the time we spent in this meeting. When you first started the capture template for the meeting a clock was started. When the meeting was saved (or filed) the clock stopped and the elapsed time was computed. The agenda view can then take this info and display it in a nicely formatted view. This is especially helpful when you have a week full of meetings. You can see at a glance how much time you spent in meetings and what those meetings involved. Hitting the `tab` key when on the same line as a meeting will take you to that entry.
 
 
-<a id="orgb526906"></a>
+<a id="orgadf63b5"></a>
 
 ## Start Working on TODO #1
 
@@ -374,13 +472,13 @@ So far so good. We are making progress! Alas for us we get an auto generated ema
 If you click in the Org Agenda pane on the right and then press `r` it will refresh your view. Doing so will now show that your first TODO is blocked while the others remain in their default state. Since we can't do anything more here, let's move on to our next TODO item.
 
 
-<a id="orge63d0e1"></a>
+<a id="orgcab6e04"></a>
 
 ## Start Working on TODO #2
 
 We hit a dead end on our first TODO so now we are moving on to the second task. Just like in the previous TODO we want to change the state from `TODO` to `IN-PROGRESS` and add a note. Reread the previous section if you forgot how to do that. For the note you can use `Talking to Carla since Bob is gone` and then save it like you did the last one. So at this point we have 3 TODOs that are all in different states. Click over to your Agenda pane (if you closed it you can easily reopen it with `C-c a d`) and then type `r` to refresh the view. You should now see that your 3 TODOs are indeed all in different states.
 
-As we did before, navigate to the end of the body of this TODO, it return twice, and update it with what you are currently doing. Here we could add something like `Emailing Carla for her data while I wait for Bob to get back to me.` which summarizes the steps you are taking. Once again we assume that you contacted Carla over your company's email system and requested the information you require. However this time we are in luck because Carla responds fairly quickly with a link to the company's intranet where the data you want is stored. You click on the link, view the data, extract what you need, and add it to the Word document you working on. Of course, you could write everything in Org Mode and then export it to one of a dozen formats (and in fact this is what I do for my job) but for beginners I would use Org to track my notes and then something like Word to format the actual document.
+As we did before, navigate to the end of the body of this TODO, hit return twice, and update it with what you are currently doing. Here we could add something like `Emailing Carla for her data while I wait for Bob to get back to me.` which summarizes the steps you are taking. Once again we assume that you contacted Carla over your company's email system and requested the information you require. However this time we are in luck because Carla responds fairly quickly with a link to the company's intranet where the data you want is stored. You click on the link, view the data, extract what you need, and add it to the Word document you working on. Of course, you could write everything in Org Mode and then export it to one of a dozen formats (and in fact this is what I do for my job) but for beginners I would use Org to track my notes and then something like Word to format the actual document.
 
 ![adding a link to a TODO](images/image-17-link-to-doc.png)
 
@@ -401,7 +499,7 @@ From there hit `l` to enable the log view. Now you will see two things. First, y
 ![detailed agenda view](images/image-20-agenda-log-view.png)
 
 
-<a id="orgf879430"></a>
+<a id="org67ce21c"></a>
 
 ## Start Working on TODO #3
 
@@ -418,7 +516,7 @@ So, the deadline has been added so go ahead and set the state to `IN-PROGRESS` j
 ![working todo 3](images/image-22-todo-3-in-progress.png)
 
 
-<a id="org3dab517"></a>
+<a id="orgac17509"></a>
 
 ## A New TODO
 
@@ -433,7 +531,7 @@ As soon as you save your new TODO entry a file will appear on the left hand side
 ![checkboxes](images/image-24-creating-check-boxes.png)
 
 
-<a id="orgbaed559"></a>
+<a id="org5677a95"></a>
 
 ## Working the TODO
 
@@ -452,7 +550,7 @@ Additional subheadings can be created as needed to further reflect other sources
 ![tables](images/image-25-adding-tables.png)
 
 
-<a id="org37bd57c"></a>
+<a id="orgb6b0dab"></a>
 
 ## Make a note
 
@@ -461,21 +559,21 @@ At this point in the Tutorial we have covered most of the major concepts so I'm 
 In this case start the capture template with `C-c c` and then hit `n` to create a new note. You can give it a tag, but you don't need to. For this note call it `Office Supplies`, hit return, and then add the note `The code for the supply closet is 223344`. File your note with the usual `C-c C-c` and you have created a simple note. While it is hardly as exciting as the other features we've covered, it is still a useful thing to have.
 
 
-<a id="orgc25dd34"></a>
+<a id="org9da69e9"></a>
 
 ## Record a journal entry
 
-Lastly we are going to cover the journal entry capture template. This feature is meant to be a quick and easy way to log accomplishments at your job. If you find it useful consider looking up some of the Org Mode journal packages that offer more features. But for this case, this is meant as a very simple solution that allows you to jot down what you are doing on any given day. You can add as little or as much detail as you want. The goal is only to have an easy to reference record of what you do each day on the job. I personally have found this to be very useful at the end of the year when writing up my accomplishments for a performance review. It is very helpful to see what I've done throughout the year. 
+Lastly, the journal entry capture template. This feature is meant to be a quick and easy way to log accomplishments at your job. If you find it useful consider looking up some of the Org Mode journal packages that offer more features. But for this case, this is meant as a very simple solution that allows you to jot down what you are doing on any given day. You can add as little or as much detail as you want. The goal is only to have an easy to reference record of what you do each day on the job. I personally have found this to be very useful at the end of the year when writing up my accomplishments for a performance review. It is very helpful to see what I've done throughout the year. 
 
 
-<a id="orgdc9ba5d"></a>
+<a id="org4fe999e"></a>
 
 ## Filtering Tags
 
 So far we have only talked about creating content in Org Mode and then viewing it in the Agenda. However, the Agenda View has quite a bit of hidden functionality that we never talked about. For example, it has a very nice filtering capability. To filter your TODOs by tag you would navigate to the Agenda View and type `/` followed by the tag you wished to search for. If you wanted to reset the Agenda View and clear the search you would type `|`. The Agenda supports some very advanced filtering options which is far beyond the scope of this simple tutorial, but I encourage you to checkout the Org Manual's page on [filtering/limiting agenda items](https://orgmode.org/manual/Filtering_002flimiting-agenda-items.html).
 
 
-<a id="org8235f0e"></a>
+<a id="org82a316c"></a>
 
 # Keyboard Shortcuts List
 
@@ -613,7 +711,7 @@ The second way of activating a task is to call the function directly. To do this
 </table>
 
 
-<a id="orgc14db0d"></a>
+<a id="org2bd97b1"></a>
 
 # Beyond This Tutorial
 
@@ -622,7 +720,7 @@ I hope you found this simple tutorial useful. Emacs and Org Mode combine to make
 Likewise I want to stress to all new users that everything contained in this repo is just one way you can use Org Mode to organize your life. This isn't the **right** way because there is no universal **right** way, only a way that works for you. If you find some of these features useful but not others, then only use what you want. If you want to tweak the configurations listed here to better suite your tastes, then do so with my blessing. I sincerely hope that this software improves your life to the same degree it has improved mine. With that I leave you to go forth and do great things.
 
 
-<a id="org662c3e5"></a>
+<a id="org74ddf1b"></a>
 
 # Further Reading
 
