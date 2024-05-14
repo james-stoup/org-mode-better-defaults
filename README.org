@@ -129,7 +129,7 @@ Before we get much further we need to review Org Mode's syntax and highlight how
 | 3rd level heading | ~*** heading 3~   | ~### heading 1~ |
 | Bold              | ~*bold*~          | ~**bold**~      |
 | Italic            | ~/italic/~        | ~*italic*~      |
-| Strikethrough     | ~+strike+~        | ~~~strike~~~    |
+| Strike-through     | ~+strike+~        | ~~~strike~~~    |
 | Code              | ~~code~~          | ~`code`~        |
 | Quote             | ~=quote=~         | ~> quote~       |
 | Bullet            | ~- bullet~        | ~- bullet~      |
@@ -168,7 +168,7 @@ Here is an example of the agenda in action.
 
 ![[file:images/image-11-agenda-view-small.png][agenda view]]
 
-To bring up the Agenda hit ~C-c a~ and then select the agenda view you want to use. To follow along with this tutorial, use the ~Daily Agenda and All TODOs~ option by typing ~d~ at the agenda prompt. Don't worry if this doesn't seem to make sense right now. This section only contains brief explanations of what the core concepts, not a detailed breakdown of every feature. In the Practical Walkthrough section below all of the steps needed to interact with Org Mode will be clearly labeled so that even a total novice can use it.
+To bring up the Agenda hit ~C-c a~ and then select the agenda view you want to use. To follow along with this tutorial, use the ~Daily Agenda and All TODOs~ option by typing ~d~ at the agenda prompt. Don't worry if this doesn't seem to make sense right now. This section only contains brief explanations of what the core concepts, not a detailed breakdown of every feature. In the Practical walkthrough section below all of the steps needed to interact with Org Mode will be clearly labeled so that even a total novice can use it.
 
 ** Using Capture Templates
 So to quickly recap, TODOs contain your data and the Agenda is how you view your data, but how do you enter it? Well, there are two ways. The first way is to open the file, navigate to the end of it, hit return, type a ~*~ hit space, type ~TODO~, and then enter all of your information. This will absolutely work and if you feel more comfortable doing it this way at first, go for it. The Agenda view will still pick up your manually entered TODOs and display them just fine.
