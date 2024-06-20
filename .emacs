@@ -1,38 +1,12 @@
-:DOC-CONFIG:
-#+property: header-args:emacs-lisp :tangle (concat (file-name-sans-extension (buffer-file-name)) ".el")
-#+property: header-args :mkdirp yes :comments no
-#+startup: fold
-:END:
-
-#+title: Org Better Defaults
-#+author: James Stoup
-#+email: jrstoup@gmail.com
-
-
-This repo is designed to improve the Org Mode experience with better default settings. Out of the box, Org Mode is already very useful. However, the experience can be greatly improved by making some basic changes to enhance your workflow and improve your experience. Many of these settings are recommended in various Org Mode tutorials, blogs, demos, and videos. This just saves you the time of having to make all these changes yourself.
-
-* Initial Setup
-This is the core setup that adds the core repos, configures use-package, sets useful defaults, initializes an auto complete and project management system, and finally sets some nice UI tweaks that greatly enhance the experience.
-** Load Custom File
-Load the ~custom.el~ file so any UI changes you make get saved and loaded properly.
-
-#+begin_src emacs-lisp
 (setq custom-file "~/.emacs.d/custom.el")
 (if (file-exists-p custom-file)
     (load custom-file))
-#+end_src
-** Add Core Repositories
-Add additional repositories
-#+begin_src emacs-lisp
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") )
 (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") )
-#+end_src
-** Setup Use-Package 
-This has to be installed first.
 
-#+begin_src emacs-lisp
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -48,11 +22,7 @@ This has to be installed first.
   (require 'use-package))
 
 (setq use-package-always-ensure t)
-#+end_src
-** Configure Basic Functionality
-This makes the UI a little more pleasant.
 
-#+begin_src emacs-lisp
 (use-package emacs
   :init
   (set-language-environment "UTF-8")
@@ -66,11 +36,7 @@ This makes the UI a little more pleasant.
   )
 
 (add-to-list 'image-types 'svg)
-#+end_src
-** Install Small Packages
-These are a bunch of small, but useful, packages that make using org much nicer.
 
-#+begin_src emacs-lisp
 (use-package all-the-icons
   :if (display-graphic-p))
 
@@ -136,12 +102,7 @@ These are a bunch of small, but useful, packages that make using org much nicer.
   :config
   (which-key-mode)
   )
-#+end_src
 
-** Helm
-There are several options for this kind of functionality, but I'm going with Helm.
-
-#+begin_src emacs-lisp
 (use-package helm
   :init
   (helm-mode 1)
@@ -158,12 +119,7 @@ There are several options for this kind of functionality, but I'm going with Hel
 (use-package helm-descbinds
   :bind ("C-h b" . helm-descbinds)
   )
-#+end_src
 
-** Default Org Location
-Org needs to know where to look for things and the most common place to put your org files is in your home directory. So first let's create the ~~/org~ directory if it doesn't already exist. Then we can associate all files ending in ~.org~ with ~org-mode~.
-
-#+begin_src emacs-lisp
 (if (not (file-directory-p (substitute-in-file-name "$HOME/org")))
     (let ((org-dir (substitute-in-file-name "$HOME/org")))
       (make-directory org-dir))
@@ -172,12 +128,7 @@ Org needs to know where to look for things and the most common place to put your
 (setq org-agenda-files '("~/org"))
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-#+end_src
 
-** Treemacs
-Treemacs needs to be installed because it will allow you to view the top two headings of org files. Effectively creating a top level outline view of all org files. This is incredibly useful. With this hook treemacs will start as soon as Emacs is launched. When that happens, it will prompt for the directory to use as the root of the project. I recommend using the org directory in your home directory (don't worry, it gets automatically created) as that is a pretty standard place to store your org files.
-
-#+begin_src emacs-lisp
 (use-package treemacs
   :hook (after-init . treemacs)
   :bind
@@ -187,20 +138,12 @@ Treemacs needs to be installed because it will allow you to view the top two hea
         ("C-x t C-t" . treemacs-find-file)
         ("C-x t M-t" . treemacs-find-tag))
   )
-#+end_src
-** Improved Modeline
-This modeline is nicer than the default one. It is a small tweak, but I like it.
 
-#+begin_src emacs-lisp
 (use-package doom-modeline
 :ensure t
 :hook (after-init . doom-modeline-mode)
 )
-#+end_src
-** Improved Defaults
-Making the UI a little easier to interact with.
 
-#+begin_src emacs-lisp
 ;; Start with the window maximized
 (toggle-frame-maximized)
 
@@ -229,22 +172,11 @@ Making the UI a little easier to interact with.
 
 ;; Cleanup whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-#+end_src
 
-* Core Org Mode Settings
-** Better Keybindings
-We can make things easier on ourselves with some better keybindings.
-
-#+begin_src emacs-lisp
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (define-key global-map "\C-cc" 'org-capture)
-#+end_src
 
-** Indentation
-This makes things look so much nicer.
-
-#+begin_src emacs-lisp
 ;; Better indents
 (use-package org-indent
   :ensure nil
@@ -252,27 +184,13 @@ This makes things look so much nicer.
   :hook (org-mode . org-indent-mode)
   :custom
   (org-indent-indentation-per-level 4))
-#+end_src
 
-** Auto Lists
-This is something so simple I can't believe it isn't already turned on by default. Calvin Young's [[https://github.com/calvinwyoung/org-autolist][org-autolist]] is so useful. When you are making a list and you hit return, it automatically adds another bullet for you. It is wonderful.
-
-#+begin_src emacs-lisp
 (use-package org-autolist
   :hook (org-mode . org-autolist-mode)
   )
-#+end_src
 
-** Logging
-It is often helpful to record a timemstamp when a TODO item is marked done. You can record a timestamp as well as a note by changing ~'time~ to ~'note~, but that can be overkill for most things.
-
-#+begin_src emacs-lisp
 (setq org-log-done 'time)
-#+end_src
 
-** Colors
-
-#+begin_src emacs-lisp
 (setq light-mode nil)
 
 (if light-mode
@@ -309,12 +227,7 @@ It is often helpful to record a timemstamp when a TODO item is marked done. You 
    home-color "mediumPurple1"
    )
   )
-#+end_src
 
-** Better Babel
-Working in source blocks is an amazing feature, but there are some annoyances. No longer having to confirm every time you want to execute a code block is wonderful.
-
-#+begin_src emacs-lisp
 (use-package org
   :pin gnu
   :custom
@@ -323,27 +236,13 @@ Working in source blocks is an amazing feature, but there are some annoyances. N
   (org-src-tab-acts-natively t)                 ;; Tabs act as 4 spaces in source blocks
   (org-src-preserve-indentation t)              ;; Preserving indentation in source blocks
   )
-#+end_src
 
-** Misc
-Always open links by hitting return.
-
-#+begin_src emacs-lisp
 (setq org-return-follows-link  t)
-#+end_src
 
-* Better TODO Settings
-** Expanding TODO Keywords
-This expands the default TODO keywords by giving us some more robust options. Now there are two more working states and the ending state can be either DONE or WONT-DO.
-
-#+begin_src emacs-lisp
 (setq org-todo-keywords
       '((sequence "TODO(t)" "IN-PROGRESS(i@/!)" "BLOCKED(b@/!)" "|" "DONE(d@/!)" "WONT-DO(w@/!)" ))
 )
-#+end_src
 
-** Adding Better Capture Templates
-#+begin_src emacs-lisp
 (setq org-capture-templates
       '(
         ("t" "TODO Item"
@@ -369,9 +268,7 @@ This expands the default TODO keywords by giving us some more robust options. No
          "** %?"
          :empty-lines 0)
         ))
-#+end_src
-** Adding Tags
-#+begin_src emacs-lisp
+
 (setq org-tag-alist
       '(
         (:startgroup . nil)
@@ -388,11 +285,7 @@ This expands the default TODO keywords by giving us some more robust options. No
         
         ("CRITICAL" . ?c)
         ))
-#+end_src
 
-* Better Agendas
-** Daily Agenda
-#+begin_src emacs-lisp
 (defun air-org-skip-subtree-if-priority (priority)
   "Skip an agenda subtree if it has a priority of PRIORITY.
 
@@ -434,12 +327,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
           )
          ((org-agenda-compact-blocks nil)))
         ))
-#+end_src
 
-* Org UI Improvements
-** Colorizing TODOs
-
-#+begin_src emacs-lisp
 (setq org-todo-keyword-faces
       `(
         ("TODO"        . (:weight bold :foreground ,todo-color        ))
@@ -449,10 +337,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
         ("WONT-DO"     . (:weight bold :foreground ,wont-do-color     ))
         )
       )
-#+end_src
 
-** Colorizing Tags 
-#+begin_src emacs-lisp
 (setq org-tag-faces
       `(
         ("CRITICAL" . (:weight bold :foreground ,critical-color ))
@@ -463,19 +348,10 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
         ("@home"    . (:weight bold :foreground ,home-color     ))
         )
       )
-#+end_src
 
-** Misc Features
-
-#+begin_src emacs-lisp
 (setq org-hide-emphasis-markers nil)
 (add-hook 'org-mode-hook 'visual-line-mode)
-#+end_src
 
-** Better Fonts
-Making the fonts look cleaner.
-
-#+begin_src emacs-lisp
 (let* ((variable-tuple
         (cond ((x-list-fonts "ETBembo")         '(:font "ETBembo"))
               ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
@@ -499,9 +375,7 @@ Making the fonts look cleaner.
    `(org-document-title ((t (,@headline ,@variable-tuple :height 2.0 :underline nil))))
    )
   )
-#+end_src
-** Strike Through DONE Items
-#+begin_src emacs-lisp
+
 (defun my/modify-org-done-face ()
   (setq org-fontify-done-headline t)
   (set-face-attribute 'org-done nil :strike-through t)
@@ -510,8 +384,3 @@ Making the fonts look cleaner.
 
 (eval-after-load "org"
   (add-hook 'org-add-hook 'my/modify-org-done-face))
-#+end_src
-
-
-
-
