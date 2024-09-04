@@ -26,14 +26,18 @@ And what Org Mode looks like with these Better Defaults:
 ** Learning Org Mode is Hard
 A lot of Emacs related documentation assumes you already know quite a bit about the system and the documentation that is geared for new users is often so densely packed with information that it can be difficult to orient yourself. In short, it can be overwhelming. This is especially true for new users who don't care about "THE POWER OF EMACS(™)" but instead just want to try out Org Mode.
 
-The good news is that Org Mode "just works" right out of the box. The bad news is that the defaults are not great and without a lot of customization, it isn't clear *at all* that any of this stuff is actually useful. I discovered this first hand when I helped a new user get started in Org Mode. My ~.emacs~ file is over a thousand lines long with the Org Mode section easily spanning several hundreds lines. So when this new user saw my version of Org Mode and compared it to their version of Org Mode, they were rather disappointed. Where was the magic? Why did mine look fancy and theirs look so plain? And what did they have to do to get from where they were to where I was. I could have told them to just play with it for a year or two and then they would eventually get an idea of what they needed, but I knew if I did that they would just find another solution. What to do?
+The good news is that Org Mode works well right from the start. The bad news is that its default settings aren't particularly user-friendly, and without significant customization, its usefulness may not be immediately apparent. I experienced this firsthand while assisting a new user with Org Mode. My Emacs configuration file is over a thousand lines long, with several hundred lines dedicated solely to Org Mode. When this new user compared their basic Org Mode setup to mine, they were disappointed by the lack of features and customization. They wondered why their setup was so plain compared to mine and how they could achieve similar results.
 
-I sent them the link I put above so they could check out my tutorial on designing your Org Mode configuration from scratch, but they didn't want that. In fact, they had no idea what they wanted. The only thing they were sure of was that they wanted it to be functional now. Not in a year, not after they had learned lisp, right now. So what I did was massively pare down my own Emacs configuration until it was a lean setup geared entirely towards Org Mode. No code completion, language servers, linters, git integration, or anything else that wasn't directly related to Org Mode. Then I further cleaned it up to make it as easy to use as possible. Finally, I helped them install this new config and gave them some minimal instructions on how to use it. Guess what? They loved it. And based on their response I realized that there were probably a lot of people who would appreciate a little help getting started with Org Mode. So if that is you, I think this repo might help you.
+I sent them the link to my other Org Mode tutorial on designing your Org Mode configuration from scratch, but they didn't want that. In fact, they had no idea what they wanted. The only thing they were sure of was that they wanted it to be functional now. Not in a year, not after they had learned lisp, right now.
+
+After some thought I decided that rather than suggesting they spend a year experimenting to understand what they needed, which would likely lead them to seek other solutions, I decided to simplify the process. I stripped down my Emacs configuration to focus solely on Org Mode—removing all unrelated features like code completion, language servers, linters, and git integration. I then streamlined this setup to be as user-friendly as possible.
+
+After helping the new user install this pared-down configuration and providing minimal instructions, they were thrilled with the results. This experience made me realize that many others could benefit from straightforward guidance in getting started with Org Mode. If you're in the same boat, this repository might be just what you need.
 
 ** About This Repo
-This repo is designed to help brand new Emacs users become productive in Org Mode. To that end this repo consist of two core elements. The first is the tutorial contained within in this README that will walk you through how to use Org Mode using a real world scenario. The second, is the ~.emacs~ file you need to enable all of the features mentioned in the tutorial.
+This repo aims to help new Emacs users become productive with Org Mode. It includes two main components: a tutorial in this README that guides you through using Org Mode with a real-world example, and a ~.emacs~ file that enables all the features discussed in the tutorial.
 
-As a side note, this is not an Emacs tutorial, nor is it meant as an all encompassing tutorial on the vastness of Org Mode. There are many features that I simply can't cover without turning this into a small textbook. However, I will explain all the basic key commands you will need to get started. This is not a substitute for reading the [[https://orgmode.org/manual/][Official Org Mode Manual]] and I would highly encourage you to use that as a reference for future questions.
+Please note, this is not a comprehensive Emacs or Org Mode tutorial. It focuses on the basics to get you started and does not cover every feature of Org Mode. There are too many features and I simply can't cover them without turning this into a small textbook. For a more in-depth understanding, I recommend referring to the [[https://orgmode.org/manual/][Official Org Mode Manual]].
 
 ** Summary of Features
 The ~.emacs~ file has two main parts to it. The first part deals with improving how Org Mode looks and functions at a basic level. The second part of this configuration is the default values provided. For more info and specific implementation details, look over the ~org-better-defaults.org~ file in this repo. Here is a list of most of the primary enhancements provided:
@@ -116,7 +120,7 @@ Part of the new defaults you have installed is support for All The Icons. This a
 That is it. Now your system should look like the one used in this tutorial. 
 
 * I've Installed It, Now What?
-If you've already installed the config file and restarted Emacs, then it is time to begin your journey into productivity! Here are your next steps. First, finish reading this section so you understand the broad concepts that will be discussed here. Then, once you have a rough idea of the concepts, work your way through the tutorial so you can understand how someone might apply those concepts to real world tasks. Finally, take what you have learned here and apply it to your own notes as you leverage what you've learned to become more productive.
+Once you've installed the config file and restarted Emacs, you're ready to start being productive! Follow these steps: First, read through this section to grasp the key concepts. Next, go through the tutorial to see how these concepts are applied in real-world scenarios. Finally, apply what you've learned to your own notes to boost your productivity.
 
 ** A Brief Overview of Org Mode Syntax
 Before we get much further we need to review Org Mode's syntax and highlight how it differs from Markdown. For example, Org Mode uses stars (~*~) to show indentation while Markdown uses the hash sign (~#~). In both cases more stars or hashes indicates deeper levels. To better illustrate this I've included a table showing the most common formats in each style.
@@ -125,11 +129,11 @@ Before we get much further we need to review Org Mode's syntax and highlight how
 | FORMAT            | ORG MODE          | MARKDOWN        |
 |-------------------+-------------------+-----------------|
 | 1st level heading | ~* heading 1~     | ~# heading 1~   |
-| 2nd level heading | ~** heading 2~    | ~## heading 1~  |
-| 3rd level heading | ~*** heading 3~   | ~### heading 1~ |
+| 2nd level heading | ~** heading 2~    | ~## heading 2~  |
+| 3rd level heading | ~*** heading 3~   | ~### heading 3~ |
 | Bold              | ~*bold*~          | ~**bold**~      |
 | Italic            | ~/italic/~        | ~*italic*~      |
-| Strike-through     | ~+strike+~        | ~~~strike~~~    |
+| Strike-through    | ~+strike+~        | ~~~strike~~~    |
 | Code              | ~~code~~          | ~`code`~        |
 | Quote             | ~=quote=~         | ~> quote~       |
 | Bullet            | ~- bullet~        | ~- bullet~      |
@@ -137,20 +141,22 @@ Before we get much further we need to review Org Mode's syntax and highlight how
 |-------------------+-------------------+-----------------|
 
 ** An Intro to this Org Mode Tutorial
-In this tutorial I am going to use the recurring example of someone who wants to use Org Mode to manage tasks at work. I have found that without a realistic example, many tutorials just become too abstract and confusing. So for the duration of this section each of these three concepts will be explained in relation to how they could support a workflow at a generic job. By the end of this tutorial you should have enough knowledge to create your own TODOs, track them in the Agenda, create new entries with the custom capture templates, and make use of tags to organize everything.
+In this tutorial, I will use the example of managing work tasks to demonstrate Org Mode. I’ve found that realistic examples help make tutorials less abstract and more understandable. Throughout this section, I’ll explain three core concepts:
 
-To start off we are going to talk briefly about the three core concepts that make Org Mode work.
+— TODO Items
+- The Agenda
+- Capture Templates
 
- - TODO Items
- - The Agenda
- - Capture templates
+Within the context of a typical job. By the end of this tutorial, you'll know how to create TODOs, track them using the Agenda, set up custom capture templates, and use tags to organize your tasks.
 
-Each of these topics will be covered below in more detail and by the end of this document, you should have a good idea of how to use the basics of Org Mode.
+We’ll start by discussing these three essential concepts, and by the end, you should have a solid grasp of Org Mode’s basics.
 
 ** Tracking Work with TODOs
-The most basic component of Org Mode is the TODO, it describes something you want to accomplish. It can have lots of details such as when it was created, the current status, the importance, details, checklists, or the tags associated with it. Using TODO items you can keep track of tasks for work, chores to accomplish, or steps in a project, to name a few. A TODO item goes through a series of states to denote the progress you've made. By default the only two states are TODO and DONE however, this config file adds several new states which allows for expanded use cases.
+TODOs are the fundamental building blocks of Org Mode. They represent tasks you want to accomplish and can include various details such as creation date, current status, priority, descriptions, checklists, and tags. TODO items help you manage work tasks, personal chores, or project steps.
 
-Here is an example TODO item entry that might appear in your ~todos.org~ file. This is what the raw text looks like if you were to open it in another text editor.
+By default, TODO items have two states: TODO and DONE. However, this configuration adds several additional states to support a wider range of use cases.
+
+Here’s an example of what a TODO item entry might look like in your ~todos.org~ file. This is how it appears in raw text if you were to view it in a different text editor.
 
 #+begin_src
  * TODO Create 3rd Quarter Presentation :finance:gary:
@@ -162,53 +168,66 @@ Here is what it looks like with the Org Mode Better Defaults:
 ![[file:images/image-5-better-defaults.png][better defaults]]
 
 ** Understanding the Agenda
-The agenda is a way of viewing all of your TODOs in one easy to read view. The agenda collects all of your various TODOs and then organizes them so you can easily see what you've done, what is coming up, and the states that everything is in. So if you have 3 TODOs in a file called ~work.org~ and 5 TODOs in a file called ~personal.org~, the agenda view will show you all 8 of your TODOs in one place. It also provides a handy calendar so you can view TODOs that have deadlines or see when you completed a TODO.
+The Agenda provides a comprehensive view of all your TODOs in one place. It consolidates TODOs from various files, such as ~work.org~ and ~personal.org~, and organizes them by status, upcoming tasks, and completed items. The Agenda also includes a calendar to show TODO deadlines and completion dates.
 
 Here is an example of the agenda in action.
 
 ![[file:images/image-11-agenda-view-small.png][agenda view]]
 
-To bring up the Agenda hit ~C-c a~ and then select the agenda view you want to use. To follow along with this tutorial, use the ~Daily Agenda and All TODOs~ option by typing ~d~ at the agenda prompt. Don't worry if this doesn't seem to make sense right now. This section only contains brief explanations of what the core concepts, not a detailed breakdown of every feature. In the Practical walkthrough section below all of the steps needed to interact with Org Mode will be clearly labeled so that even a total novice can use it.
+To access the Agenda, press ~C-c a~ and choose the view you want. For this tutorial, select the ~Daily Agenda and All TODOs~ option by typing ~d~ at the prompt. Don't worry if this seems unclear now; detailed instructions on using Org Mode will be provided in the Practical Walkthrough section.
 
 ** Using Capture Templates
-So to quickly recap, TODOs contain your data and the Agenda is how you view your data, but how do you enter it? Well, there are two ways. The first way is to open the file, navigate to the end of it, hit return, type a ~*~ hit space, type ~TODO~, and then enter all of your information. This will absolutely work and if you feel more comfortable doing it this way at first, go for it. The Agenda view will still pick up your manually entered TODOs and display them just fine.
+To quickly recap: TODOs hold your data, and the Agenda helps you view it. But how do you enter your data efficiently? There are two methods:
 
-However, there is a better way. Let's say you decided to collect all of your sticky notes, random emails, and hand written notes so that you could create a bunch of TODOs. It would get tedious fairly quickly having to repeatedly enter the same basic format of a TODO over and over when all that really changed between TODOs is the data you are entering. It sure would be nice if there was a way to make that easier...
+1. Manual Entry: Open the file, scroll to the end, press Return, type ~* TODO~, and then enter your information. This method works and the Agenda view will display your manually entered TODOs without issue.
 
-Welcome to Capture Templates. This is a built-in way of bringing up a list of templates that allow you to rapidly enter the type of data you want without having to manually enter the boilerplate associated with it. By default, Org Mode only has one template, a generic task. But we can do better than that. In this config there are 4 capture templates to choose from:
+2. Capture Templates: This method is more efficient, especially if you have multiple TODOs to enter. Instead of repeatedly typing the same format for each TODO, Capture Templates streamline the process.
 
-- TODO (t)
-- Journal Entry (j)
-- Meeting (m)
-- Note (n)
+Capture Templates allow you to quickly enter data using predefined formats, eliminating the need to manually input repetitive boilerplate text. By default, Org Mode includes only one generic task template, but this configuration offers four useful templates:
 
-Each one captures a specific type of data into a different org file. To access a capture template first press ~C-c c~ to bring up the list of available templates. Then press the letter designating the template you want to launch. The shortcut letters are shown beside their template in the list above.
+- TODO (~t~)
+- Journal Entry (~j~)
+- Meeting (~m~)
+- Note (~n~)
+
+Each template captures a specific type of data into a designated Org file. To use a Capture Template, press ~C-c c~ to open the list of available templates. Then, press the corresponding letter for the template you want to use, as indicated in the list above.
 
 * A Practical Walkthrough
-At this point you should have installed the new config file and read over the summary describing the core features of Org Mode. Now we are going to walk through exactly what you have to do to put it all together to get the most from Org Mode. In this Walkthrough we are going to use Org Mode to help us manage the workload of an example job.
+By now, you should have installed the new configuration file and reviewed the summary of Org Mode’s core features. In this walkthrough, we’ll put it all together to help you get the most out of Org Mode by managing a sample workload.
 
-In this example scenario it is Monday morning and you are about to have a meeting with several people to discuss possibly making a new purchase order for a large number of components that will be needed for the next quarter. Based on the results of that meeting you might have to speak to some other people, gather some data, write a report, and then submit your findings to your boss by Thursday so she can review it and send the order in by Friday. We are going to walk through each step of this example work week and show how to organize your work and track your progress using Org Mode.
+In this scenario, it’s Monday morning and you have a meeting scheduled to discuss a potential new purchase order for components needed for the next quarter. Depending on the meeting's outcome, you may need to consult with others, gather data, write a report, and submit your findings to your boss by Thursday for her review, so she can place the order by Friday. We’ll guide you through each step of this work week and demonstrate how to use Org Mode to organize your tasks and track your progress.
 
-To start this tutorial just launch Emacs. You don't have to open a specific file because the Org Mode Capture Template can be invoked from anywhere. Once you launch Emacs you will see two panes in the window. On the left you will Treemacs showing you a folder named ~org~ and on the right you will see the ~*scratch*~ window with the message "Welcome to Emacs!" Click in that pane. This is where you will be doing most of your interaction for this tutorial.
+To start, launch Emacs. You don't need to open a specific file because the Org Mode Capture Template can be accessed from anywhere. Once Emacs opens, you’ll see two panes: Treemacs on the left showing a folder named ~org~, and the ~*scratch*~ window on the right displaying "Welcome to Emacs!" Click in the scratch window—this is where you’ll perform most of the actions in this tutorial.
 
 ![[file:images/image-6-blank-slate.png][fresh install]]
 
 ** Monday Morning Meeting
-It is Monday morning and you are about to join a meeting with your boss along with a few coworkers to discuss a potential future purchase order. Your company needs to make sure that certain parts are ordered in time. However, these parts are both expensive and difficult to make. If you don't have enough parts by the time the assembly team needs them then all work will have to stop for a month while more are made. However, if you order too many, it will be very costly to store them until such a time as you will use them. So a plan needs to be decided on in this meeting so you know what to do. Before the real meeting starts you decide to track things in Org Mode. To do that you will need to create a new meeting.
+It's Monday morning, and you’re about to attend a meeting with your boss and a few coworkers to discuss a potential purchase order. Your company needs to ensure that certain expensive and complex parts are ordered on time. If there aren’t enough parts available when needed, production will halt for a month while more are made. Conversely, ordering too many parts will be costly to store until they’re needed. The meeting will help determine the best course of action. Before the meeting starts, you decide to track the details in Org Mode by creating a new meeting entry.
 
-Start by pressing the ~Control~ key and then while you are still pressing it, press the ~c~ key. Release both keys. Once you do that, press the ~c~ key again. This will launch the Capture Template. To make reading this easier, future key combinations will be represented in the standard Emacs form. In this case, the key combination would be written as ~C-c c~ which is read as "press Control and c, then release both keys, then press c".
+Here’s how to get started:
+
+*Open Capture Template*
+Press ~Control~ and while holding it, press ~c~, then release both keys. Next, press ~c~ again. This launches the Capture Template. In Emacs notation, this is written as ~C-c c~ which is read as "press Control and c, then release both keys, and press c again".
 
 ![[file:images/image-7-capture-template.png][the capture template]]
 
-Once you have launched the Capture Template you will be given a choice of four templates to choose from. Since we want to create a new meeting item, press the ~m~ to select a new Meeting. Once you do this you will notice a strange looking Meeting template appear and the mini buffer will become active with the label ~Tags:~. For this example just type in ~planning~ and hit return.
+*Select Meeting Template*
+After launching the Capture Template, you’ll see four options. Press ~m~ to choose the Meeting template. This will open a meeting template and activate the mini buffer with the label ~:Tags:~. For this example, type ~planning~ and press Return.
 
 ![[file:images/image-8-new-meeting.png][setting tags for a new meeting]]
 
-At this point you will see an empty (but properly formatted) meeting template with the cursor located at the top heading. Enter a title for your meeting. Since this is a planning meeting let's call it ~Purchase planning~. After that you see a dash under the heading ~Attendees~. Put your cursor on that line and enter the name of the person leading the meeting, which would be your boss, Alice. After you type ~Alice~ press return and you will notice another dash has appeared. Go ahead and type ~Bob~ and hit return. Round out the list with your final coworker ~Carla~ and then hit return twice to stop making a list.
+*Fill in Meeting Details*
+Enter a title for your meeting. Since this is a planning meeting, type ~Purchase Planning~. Under the heading Attendees, list the names of the people present. Type ~Alice~ (your boss), press Return, then type ~Bob~, press Return, and finally type ~Carla~. Press Return twice to finish the list.
 
-Now the meeting has started so navigate to the ~Notes~ section and begin filling in details. Here you might put something like ~Alice needs to have a report by Thursday at 11am at the latest. Talk to Bob first, he can find out how many parts we have. Carla knows how many parts we will need for next quarter's projects. I can find out how much of our budget is left for future expenditures by looking at our accounts.~ Of course you can take whatever notes you want in whatever structure you want, but for the moment we are keeping it simple since this is a quick meeting.
+*Take Meeting Notes*
+Navigate to the ~Notes~ section and begin filling in details discussed in the meeting. For example:
 
-At the end of the meeting Alice tasks you with getting the numbers from Bob and Carla, checking our available funds, and writing up a recommendation to her by 11am Thursday morning. Now that we know what our tasking is, we need to decide how we should store this info. Thankfully our meeting template has one more heading, ~Action Items~! Action Items are tasks that get assigned to us in meetings. Not every meeting will produce Action Items, so for those that don't we can just delete those lines before we save our meeting.
+~Alice needs to have a report by Thursday at 11am at the latest. Talk to Bob first, he can find out how many parts we have. Carla knows how many parts we will need for next quarter's projects. I can find out how much of our budget is left for future expenditures by looking at our accounts.~
+
+Of course you can take whatever notes you want in whatever structure you want, but for the moment we are keeping it simple since this is a quick meeting.
+
+*Record Action Items*
+At the end of the meeting, Alice assigns you tasks: get numbers from Bob and Carla, check available funds, and write a recommendation by Thursday at 11am. These tasks should be entered under the ~Action Items~ heading in the template. Not every meeting will have ~Action Items~, so you can delete this section if it's not applicable before saving your meeting notes.
 
 ** Filling in the Action Items
 For our first action item we are going to create a TODO for finding out the current stock levels. Fill out the rest of the first action item with this ~Get current stock levels from Bob~ and then hit ~return~. On this new line let's add some details such as ~I need to talk to Bob and get a detailed breakdown of how many parts we have used this quarter as well as how many are left.~. We now have our first action item filled out.
